@@ -13,6 +13,7 @@ User input for plant data
 
 Stretch
 * Automatic garden generator
+* Sharing a garden with other users
 * Watering reminders*
 * Crop rotation suggestions
 * Expected Yield per crop
@@ -28,8 +29,24 @@ MVP routes
     * sign in
     * about
 * Dashboard with multiple views/layers
-    * gerden builder
+    * garden builder
     * plant lookup
 * Add plant to database
 * Plant browser
 
+User model:
+* Email, Password
+
+Garden model:
+* Dimensions
+* Climate (Stretch goal?)
+* Plant types and positions
+
+Plant model:
+* Name
+* Size
+* Time planted
+* Time to yield
+* Harvest amount
+* Watering frequency
+* Full sun/half shade/full shade
