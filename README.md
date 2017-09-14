@@ -9,6 +9,7 @@ Initial Plant Data
 * Water requirements
 * Sun requirements
 * Size/spread
+* Expected yield
 User input for plant data
 
 Stretch
