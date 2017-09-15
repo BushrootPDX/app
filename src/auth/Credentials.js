@@ -24,6 +24,6 @@ export default ({ submit, allowName = false }) => (
         {allowName && <label>name: <input name="name"/></label>}
         <label>email: <input name="email"/></label>
         <label>password: <input type="password" name="password"/></label>
-        <button>Log In</button>
+        <button>Sign up!</button>
     </Form>
 );
