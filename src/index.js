@@ -4,6 +4,12 @@ import './index.css';
 import TopBar from './routing';
 import App from './App';
 import registerServiceWorker from './registerServiceWorker';
+import { Provider } from 'react-redux';
+import store from './store/index';
 
-ReactDOM.render(<TopBar />, document.getElementById('root'));
+ReactDOM.render(
+    <Provider store={store}>
+        <TopBar />
+    </Provider>, document.getElementById('root')
+);
 registerServiceWorker();

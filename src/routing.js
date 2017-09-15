@@ -1,6 +1,9 @@
 import React from 'react';
-import {BrowserRouter as Router, Route, Link, Switch} from 'react-router-dom';
+import {BrowserRouter as Router, Route, Link, Switch, Redirect} from 'react-router-dom';
+import Auth from './auth/Auth';
 import App from './App';
+import PrivateRoute from './privateRoute';
+
 
 const Home = () => (
     <div>
@@ -16,8 +19,10 @@ export const TopBar = () => (
         </ul>
         <hr/>
         <Switch>
+            <Route path="/auth" render={() => <Auth/>}/>
+            <PrivateRoute path="/app" render={() => <App/>}/>
             <Route exact path="/" component={Home}/>
-            <Route path="/app" component={App}/>
+            <Redirect to="/"/>
         </Switch>
     </div>
 );

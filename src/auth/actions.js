@@ -48,7 +48,7 @@ export function signup(user) {
                 dispatch({ type: actions.FETCHED_USER, payload: user });
             })
             .catch(error => {
-                dispatch({ type: actions.AUTHED_FAILED, payload: error });
+                dispatch({ type: actions.AUTH_FAILED, payload: error });
             });
     };
 }
