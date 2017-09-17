@@ -1,0 +1,39 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SearchBar component renders a search bar with a default value 1`] = `
+<form>
+  <input
+    type="text"
+    value={
+      Object {
+        "queryField": null,
+        "searchFunction": [Function],
+      }
+    }
+  />
+  <button
+    onSubmit={Object {}}
+  >
+    Search
+  </button>
+</form>
+`;
+
+exports[`SearchBar component renders a search bar with a supplied value 1`] = `
+<form>
+  <input
+    type="text"
+    value={
+      Object {
+        "queryField": "potato",
+        "searchFunction": [Function],
+      }
+    }
+  />
+  <button
+    onSubmit={Object {}}
+  >
+    Search
+  </button>
+</form>
+`;

@@ -17,8 +17,10 @@ const plant = {
 };
 
 describe('PlantDetail component', () => {
+
     it('renders a plant detail compoenent', () => {
         const wrapper = shallow(<PlantDetail className={className} plant={plant}/>);
         expect(toJSON(wrapper)).toMatchSnapshot();
     });
+    
 });
