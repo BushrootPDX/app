@@ -1,0 +1,49 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PlantDetail component renders a plant detail compoenent 1`] = `
+<div
+  className={
+    Object {
+      "className": "smallViewer",
+      "plant": Object {
+        "harvestAmount": 3,
+        "height": "24",
+        "name": "brian",
+        "photoUrl": "http://picpic.com/somepic.jpg",
+        "scientificName": "planty mcplanterson",
+        "spread": "14",
+        "sunlightReq": "partial shade",
+        "waterReq": "beer only",
+        "zone": "8",
+      },
+    }
+  }
+>
+  <img />
+  <h3 />
+  <h5 />
+  <h5>
+    Size:
+  </h5>
+  <span>
+    in. X 
+    in. 
+  </span>
+  <h5>
+    Zone:
+  </h5>
+  <span />
+  <h5>
+    Sunlight Preference: 
+  </h5>
+  <span />
+  <h5>
+    Water Requirements: 
+  </h5>
+  <span />
+  <h5>
+    Typical Yield:  
+  </h5>
+  <span />
+</div>
+`;
