@@ -10,7 +10,7 @@ export default function PlantDetail( className, {
     harvestAmount,
     sunlightReq,
     waterReq
-}) {
+}, addToFavorites) {
 
     return (
         <div className={className}>
@@ -22,6 +22,7 @@ export default function PlantDetail( className, {
             <h5>Sunlight Preference: </h5><span>{sunlightReq}</span>
             <h5>Water Requirements: </h5><span>{waterReq}</span>
             <h5>Typical Yield:  </h5><span>{harvestAmount}</span>
+            <button onClick={addToFavorites}>Add to Favorites</button>
         </div>
     );
 
