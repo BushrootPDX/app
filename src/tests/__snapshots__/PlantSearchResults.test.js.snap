@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PlantSearchResults component renders the plant search results when given as an array 1`] = `
+<ul>
+  <li
+    onSelect={[Function]}
+  >
+    bill
+  </li>
+  <li
+    onSelect={[Function]}
+  >
+    steve
+  </li>
+  <li
+    onSelect={[Function]}
+  >
+    tomato
+  </li>
+</ul>
+`;
