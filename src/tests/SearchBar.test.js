@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import toJSON from 'enzyme-to-json';
-import SearchBar from '../searchbar/SearchBar';
+import { SearchBar } from '../searchbar/SearchBar';
 
 const searchFunction = function(value) {
     console.log('something something', value);

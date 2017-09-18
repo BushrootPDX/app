@@ -46,6 +46,7 @@ exports[`PlantDetail component renders a plant detail compoenent 1`] = `
   </h5>
   <span />
   <button
+    display={false}
     onClick={
       Object {
         "enqueueCallback": [Function],

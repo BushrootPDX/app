@@ -3,6 +3,7 @@
 exports[`SearchBar component renders a search bar with a default value 1`] = `
 <form>
   <input
+    onChange={[Function]}
     type="text"
     value={
       Object {
@@ -12,7 +13,18 @@ exports[`SearchBar component renders a search bar with a default value 1`] = `
     }
   />
   <button
-    onSubmit={Object {}}
+    onSubmit={
+      Object {
+        "enqueueCallback": [Function],
+        "enqueueCallbackInternal": [Function],
+        "enqueueElementInternal": [Function],
+        "enqueueForceUpdate": [Function],
+        "enqueueReplaceState": [Function],
+        "enqueueSetState": [Function],
+        "isMounted": [Function],
+        "validateCallback": [Function],
+      }
+    }
   >
     Search
   </button>
@@ -22,6 +34,7 @@ exports[`SearchBar component renders a search bar with a default value 1`] = `
 exports[`SearchBar component renders a search bar with a supplied value 1`] = `
 <form>
   <input
+    onChange={[Function]}
     type="text"
     value={
       Object {
@@ -31,7 +44,18 @@ exports[`SearchBar component renders a search bar with a supplied value 1`] = `
     }
   />
   <button
-    onSubmit={Object {}}
+    onSubmit={
+      Object {
+        "enqueueCallback": [Function],
+        "enqueueCallbackInternal": [Function],
+        "enqueueElementInternal": [Function],
+        "enqueueForceUpdate": [Function],
+        "enqueueReplaceState": [Function],
+        "enqueueSetState": [Function],
+        "isMounted": [Function],
+        "validateCallback": [Function],
+      }
+    }
   >
     Search
   </button>
