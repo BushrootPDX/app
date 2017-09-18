@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { selectPlant } from './actions';
 
-export class PlantSearchResults extends Component {
+export default class PlantSearchResults extends Component {
 
     render() {
 
@@ -22,11 +21,3 @@ export class PlantSearchResults extends Component {
     }
 }
 
-export default connect(
-    state => ({ 
-        plants: state.plants, 
-    }),
-    dispatch => ({ 
-        selectPlant: dispatch(selectPlant()) 
-    })
-)(PlantSearchResults);

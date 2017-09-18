@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import SearchBarContainer from '../searchbar/SearchBarContainer';
-import PlantSearchResults from './PlantSearchResults';
+import PlantSearchResultsContainer from './PlantSearchResultsContainer';
 import PlantDetail from '../plantdetail/PlantDetail';
 
 export class PlantSearchContainer extends Component {
@@ -12,7 +12,7 @@ export class PlantSearchContainer extends Component {
         return (
             <div>
                 <SearchBarContainer />
-                <PlantSearchResults />
+                <PlantSearchResultsContainer />
                 <PlantDetail plant={selectedPlant} />
             </div>
         );
