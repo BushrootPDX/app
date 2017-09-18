@@ -1,31 +1,25 @@
-import React from 'react';
-import { connect } from 'react-redux';
-import { queryChange, queryReset } from './actions';
+import React, { Component } from 'react';
 
-export function SearchBar(queryField, onChange, searchFunction) {
+export default class SearchBar extends Component {
 
-    return (
-        <form>
-            <input 
-                type="text" 
-                value={queryField}
-                onChange={ ({target}) => queryChange(target.value)}
-            ></input>
-            <button onSubmit={searchFunction}>Search</button>
-        </form>
-    );
+    componentWillUnmount() {
+        this.props.queryReset();
+    }
+
+    render() {
+        const { queryField } = this.props;
+        const { queryChange, searchFunction } = this.props;
+
+
+        return (
+            <form>
+                <input
+                    type="text"
+                    value={queryField}
+                    onChange={({ target }) => queryChange(target.value)}
+                ></input>
+                <button onSubmit={() => searchFunction(queryField)}>Search</button>
+            </form>
+        );
+    }
 }
-
-const mapStateToProps = state => ({
-    queryField: state.queryField
-});
-
-const mapDispatchToProps = dispatch => ({
-    queryChange: dispatch(queryChange()),
-    queryReset: dispatch(queryReset())
-});
-
-export default connect(
-    mapStateToProps,
-    mapDispatchToProps
-)(SearchBar);

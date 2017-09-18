@@ -1,6 +1,7 @@
 import React from 'react';
 
-export default function PlantDetail( className, {
+export default function PlantDetail( {
+    _id,
     name, 
     scientificName,
     photoUrl,
@@ -10,10 +11,10 @@ export default function PlantDetail( className, {
     harvestAmount,
     sunlightReq,
     waterReq
-}, addToFavorites) {
+}) {
 
     return (
-        <div className={className}>
+        <div id={_id}>
             <img src={photoUrl} alt={name}/>
             <h3>{name}</h3>
             <h5>{scientificName}</h5>

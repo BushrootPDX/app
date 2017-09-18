@@ -1,21 +1,16 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-
-// props = plant, selectPlant();
-
+import { selectPlant } from './actions';
 
 export class PlantSearchResults extends Component {
 
-    handleShowResults() {
-        //connected to store via actions/reducers
-    }
-
     render() {
-        const { results, selectPlant } = this.props;
+
+        const { plants, selectPlant } = this.props;
 
         return (
             <ul>
-                {results && results.map((plant, index) => 
+                {plants && plants.map((plant, index) => 
                     (<li key={index} 
                         id={plant._id} 
                         onSelect={() => selectPlant(plant._id)}>
@@ -29,7 +24,9 @@ export class PlantSearchResults extends Component {
 
 export default connect(
     state => ({ 
-        results: state.results, 
-        showResults: state.showResults }),
-    state => ({ selectPlant: state.selectPlant })
+        plants: state.plants, 
+    }),
+    dispatch => ({ 
+        selectPlant: dispatch(selectPlant()) 
+    })
 )(PlantSearchResults);

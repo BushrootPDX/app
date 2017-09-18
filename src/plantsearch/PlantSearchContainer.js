@@ -1,31 +1,19 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import SearchBar from '../searchbar/SearchBar';
+import SearchBarContainer from '../searchbar/SearchBarContainer';
 import PlantSearchResults from './PlantSearchResults';
 import PlantDetail from '../plantdetail/PlantDetail';
 
 export class PlantSearchContainer extends Component {
 
-    constructor(props){
-        super(props);
-        this.state = {
-
-        };
-    }
-
-
     render() {
+        const { selectedPlant, plants } = this.props;
+
         return (
             <div>
-                <SearchBar 
-                    queryField={queryField}
-                    onChange={updateQueryField}
-                    searchFunction={searchFunction} />
+                <SearchBarContainer />
                 <PlantSearchResults />
-                <PlantDetail 
-                    className={className}
-                    plant={selectedPlant}
-                    addToFavorites={addToFavorites} />
+                <PlantDetail plant={selectedPlant} />
             </div>
         );
     }
@@ -33,12 +21,12 @@ export class PlantSearchContainer extends Component {
 
 const mapStateToProps = state => ({
     queryField: state.queryField,
-    selectedPlant: state.selectedPlant
+    selectedPlant: state.selectedPlant,
+    recentlyViewed: state.recentlyViewed
 });
 
 const mapDispatchToProps = dispatch => ({
-
-})
+});
 
 export default connect(
     mapStateToProps,
