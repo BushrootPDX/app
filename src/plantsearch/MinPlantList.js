@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
 
-export default class PlantSearchResults extends Component {
+export default class MinPlantList extends Component {
 
     render() {
 

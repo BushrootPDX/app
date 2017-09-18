@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import toJSON from 'enzyme-to-json';
-import PlantSearchResults from '../plantsearch/PlantSearchResults';
+import MinPlantList from '../plantsearch/MinPlantList';
 
 const results = [{
     name: 'bill',
@@ -18,10 +18,10 @@ const selectPlant = function(id) {
 };
 
 
-describe('PlantSearchResults component', () => {
+describe('MinPlantList component', () => {
 
     it('renders the plant search results when given as an array', () => {
-        const wrapper = shallow(<PlantSearchResults plants={results} selectPlant={selectPlant}/>);
+        const wrapper = shallow(<MinPlantList plants={results} selectPlant={selectPlant}/>);
         expect(toJSON(wrapper)).toMatchSnapshot();
     });
 

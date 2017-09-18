@@ -9,6 +9,15 @@ export function plants(state = [], { type, payload }) {
     }
 }
 
+export function recentlyViewed(state = [], { type, payload}) {
+    switch(type) {
+    case actions.VIEWED_PLANT:
+        return [payload, ...state];
+    default: 
+        return state;
+    }
+}
+
 export function plantsError(state = null, { type, payload }) {
     switch (type) {
     case actions.FETCH_PLANTS_ERROR:

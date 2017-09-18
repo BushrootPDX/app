@@ -33,6 +33,10 @@ export function selectPlant(id) {
                     type: actions.FETCHED_PLANT,
                     payload: plant
                 });
+                dispatch({
+                    type: actions.VIEWED_PLANT,
+                    payload: {name: plant.name, _id: plant._id}
+                });
             })
             .catch( error => {
                 dispatch({

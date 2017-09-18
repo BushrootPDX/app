@@ -1,11 +1,10 @@
-import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import PlantSearchResults from './PlantSearchResults';
+import MinPlantList from './MinPlantList';
 import { selectPlant } from './actions';
 
 
 const mapStateToProps = state => ({
-    plants: state.plants,
+    plants: state.recentlyViewed,
 
 });
 
@@ -15,9 +14,9 @@ const mapDispatchToProps = dispatch => ({
     )
 });
 
-const PlantSearchResultsContainer = connect(
+const RecentPlantsContainer = connect(
     mapStateToProps,
     mapDispatchToProps,
-)(PlantSearchResults);
+)(MinPlantList);
 
-export default PlantSearchResultsContainer;
+export default RecentPlantsContainer;
