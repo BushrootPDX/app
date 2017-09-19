@@ -1,6 +1,6 @@
 {
   "proxy": "http://localhost:3001",
-  "name": "bushroot-frontend",
+  "name": "app",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -31,11 +31,11 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/BushrootPDX/bushroot-frontend.git"
+    "url": "git+https://github.com/BushrootPDX/app.git"
   },
   "author": "Christopher Thomson, Mark Petrie, Joe Churchman, Andrew Potter",
   "bugs": {
-    "url": "https://github.com/BushrootPDX/bushroot-frontend/issues"
+    "url": "https://github.com/BushrootPDX/app/issues"
   },
-  "homepage": "https://github.com/BushrootPDX/bushroot-api#readme"
+  "homepage": "https://github.com/BushrootPDX/server#readme"
 }
