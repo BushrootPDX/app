@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux';
 import auth from '../auth/reducers';
-import queryField from '../searchbar/reducers';
+import { queryField } from '../searchbar/reducers';
 import { 
     plants,
     plantsError, 

@@ -1,5 +1,6 @@
 import { connect } from 'react-redux';
 import MinPlantList from './MinPlantList';
+import { bindActionCreators } from 'redux';
 import { selectPlant } from './actions';
 
 
@@ -8,11 +9,9 @@ const mapStateToProps = state => ({
 
 });
 
-const mapDispatchToProps = dispatch => ({
-    selectPlant: dispatch(
-        selectPlant()
-    )
-});
+function mapDispatchToProps (dispatch){
+    return bindActionCreators({ selectPlant }, dispatch);
+}
 
 const RecentPlantsContainer = connect(
     mapStateToProps,

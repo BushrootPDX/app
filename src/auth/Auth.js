@@ -14,7 +14,7 @@ const Error = styled.pre`
 `;
 
 function Auth({ user, signin, signup, error, location }) {
-    const redirect = location.state ? location.state.form : '/';
+    const redirect = location.state ? location.state.from : '/';
 
     if (user) return <Redirect to={redirect}/>;
 

@@ -1,19 +1,16 @@
-import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { queryChange, queryReset } from './actions';
 import { queryPlantDb } from '../plantsearch/actions';
-
+import { bindActionCreators } from 'redux';
 import SearchBar from './SearchBar';
 
 const mapStateToProps = state => ({
     queryField: state.queryField
 });
 
-const mapDispatchToProps = dispatch => ({
-    queryChange: dispatch(queryChange()),
-    queryReset: dispatch(queryReset()),
-    searchFunction: dispatch(queryPlantDb()),    
-});
+function mapDispatchToProps (dispatch) {
+    return bindActionCreators({ queryChange, queryReset, queryPlantDb }, dispatch);
+}
 
 const SearchBarContainer = connect(
     mapStateToProps,

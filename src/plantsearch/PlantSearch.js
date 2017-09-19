@@ -4,6 +4,7 @@ import SearchBarContainer from '../searchbar/SearchBarContainer';
 import MinPlantList from './MinPlantList';
 import PlantDetail from '../plantdetail/PlantDetail';
 import { selectPlant } from './actions';
+import { bindActionCreators } from 'redux';
 
 
 export class PlantSearch extends Component {
@@ -29,9 +30,9 @@ const mapStateToProps = state => ({
     recentlyViewed: state.recentlyViewed
 });
 
-const mapDispatchToProps = dispatch => ({
-    selectPlant: dispatch(selectPlant())
-});
+function mapDispatchToProps (dispatch){
+    return bindActionCreators({ selectPlant }, dispatch);
+}
 
 export default connect(
     mapStateToProps,

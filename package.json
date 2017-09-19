@@ -36,5 +36,6 @@
   "bugs": {
     "url": "https://github.com/BushrootPDX/bushroot-frontend/issues"
   },
-  "homepage": "https://github.com/BushrootPDX/bushroot-api#readme"
+  "homepage": "https://github.com/BushrootPDX/bushroot-api#readme",
+  "proxy": "http://localhost:3001"
 }
