@@ -1,7 +1,7 @@
 
 import { request } from './request';
 
-const URL = '/garden';
+const URL = '/gardens';
 
 export default {
     add(plant) {
