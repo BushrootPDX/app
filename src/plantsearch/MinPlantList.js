@@ -11,7 +11,7 @@ export default class MinPlantList extends Component {
                 {plants && plants.map((plant, index) => 
                     (<li key={index} 
                         id={plant._id} 
-                        onSelect={() => selectPlant(plant._id)}>
+                        onClick={() => selectPlant(plant._id)}>
                         {plant.name}
                     </li> )
                 )}

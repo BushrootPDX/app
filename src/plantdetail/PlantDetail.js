@@ -1,28 +1,29 @@
 import React from 'react';
 
-export default function PlantDetail( {
-    _id,
-    name, 
-    scientificName,
-    photoUrl,
-    spread,
-    height,
-    zone,
-    harvestAmount,
-    sunlightReq,
-    waterReq
-}) {
+export default function PlantDetail( props ) {
+    const {
+        _id,
+        name, 
+        scientific_name,
+        image,
+        spread,
+        height,
+        description,
+        sun_requirements,
+        sowing_method
+    } = props.selectedPlant;
+
+    console.log(props);
 
     return (
         <div id={_id}>
-            <img src={photoUrl} alt={name}/>
+            <img src={image} alt={name}/>
             <h3>{name}</h3>
-            <h5>{scientificName}</h5>
+            <h5>{scientific_name}</h5>
+            <h5>{description}</h5>
             <h5>Size:</h5><span>{spread}in. X {height}in. </span> 
-            <h5>Zone:</h5><span>{zone}</span>
-            <h5>Sunlight Preference: </h5><span>{sunlightReq}</span>
-            <h5>Water Requirements: </h5><span>{waterReq}</span>
-            <h5>Typical Yield:  </h5><span>{harvestAmount}</span>
+            <h5>Sunlight Preference: </h5><span>{sun_requirements}</span>
+            <h5>Sowing Method: </h5><span>{sowing_method}</span>
         </div>
     );
 

@@ -16,7 +16,7 @@ export class PlantSearch extends Component {
             <div>
                 <SearchBarContainer />
                 <MinPlantList plants={plants} selectPlant={selectPlant} />
-                <PlantDetail selectedPlant={selectedPlant} />
+                { selectedPlant._id && <PlantDetail selectedPlant={selectedPlant} /> }
                 <MinPlantList plants={recentlyViewed} selectPlant={selectPlant} />
 
             </div>
