@@ -11,8 +11,16 @@ export function plants(state = [], { type, payload }) {
 
 export function recentlyViewed(state = [], { type, payload}) {
     switch(type) {
-    case actions.VIEWED_PLANT:
-        return [payload, ...state];
+    case actions.VIEWED_PLANT:{
+        let newArray = state.slice();
+        const index = newArray.findIndex((plant) => plant._id === payload._id);
+
+        if(index !== -1) newArray.splice(index,1);
+        newArray.unshift(payload);
+        //TODO: change list lenght to hight number with test
+        if(newArray.length >= 4 ) newArray.pop();
+        return newArray;
+    }
     default: 
         return state;
     }

@@ -6,7 +6,7 @@ import PlantDetail from '../plantdetail/PlantDetail';
 import { selectPlant } from './actions';
 
 
-export class PlantSearchContainer extends Component {
+export class PlantSearch extends Component {
 
     render() {
         const { selectedPlant, plants, selectPlant, recentlyViewed } = this.props;
@@ -15,7 +15,7 @@ export class PlantSearchContainer extends Component {
             <div>
                 <SearchBarContainer />
                 <MinPlantList plants={plants} selectPlant={selectPlant} />
-                <PlantDetail plant={selectedPlant} />
+                <PlantDetail selectedPlant={selectedPlant} />
                 <MinPlantList plants={recentlyViewed} selectPlant={selectPlant} />
 
             </div>
@@ -36,4 +36,4 @@ const mapDispatchToProps = dispatch => ({
 export default connect(
     mapStateToProps,
     mapDispatchToProps
-)(PlantSearchContainer);
+)(PlantSearch);
