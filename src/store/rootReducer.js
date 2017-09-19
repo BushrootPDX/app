@@ -5,7 +5,8 @@ import {
     plants,
     plantsError, 
     plantsLoading, 
-    selectedPlant 
+    selectedPlant,
+    recentlyViewed
 } from '../plantsearch/reducers';
 
 export default combineReducers({
@@ -14,5 +15,6 @@ export default combineReducers({
     plants,
     plantsError,
     plantsLoading,
+    recentlyViewed,
     selectedPlant
 });
