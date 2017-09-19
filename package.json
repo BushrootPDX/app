@@ -36,6 +36,5 @@
   "author": "Christopher Thomson, Mark Petrie, Joe Churchman, Andrew Potter",
   "bugs": {
     "url": "https://github.com/BushrootPDX/app/issues"
-  },
-  "homepage": "https://github.com/BushrootPDX/server/public"
+  }
 }
