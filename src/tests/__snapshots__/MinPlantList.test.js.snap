@@ -3,17 +3,17 @@
 exports[`MinPlantList component renders the plant search results when given as an array 1`] = `
 <ul>
   <li
-    onSelect={[Function]}
+    onClick={[Function]}
   >
     bill
   </li>
   <li
-    onSelect={[Function]}
+    onClick={[Function]}
   >
     steve
   </li>
   <li
-    onSelect={[Function]}
+    onClick={[Function]}
   >
     tomato
   </li>
