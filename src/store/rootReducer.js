@@ -1,12 +1,13 @@
 import { combineReducers } from 'redux';
 import auth from '../auth/reducers';
+import { activeAction } from '../plantactionselector/reducers';
 import { queryField } from '../searchbar/reducers';
 import { 
     plants,
     plantsError, 
     plantsLoading, 
     selectedPlant,
-    recentlyViewed
+    recentlyViewed,
 } from '../plantsearch/reducers';
 
 export default combineReducers({
@@ -16,5 +17,6 @@ export default combineReducers({
     plantsError,
     plantsLoading,
     recentlyViewed,
-    selectedPlant
+    selectedPlant,
+    activeAction
 });
