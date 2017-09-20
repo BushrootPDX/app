@@ -8,7 +8,7 @@ export function addPlantInstance(id) {
     return dispatch => {
         dispatch({ type: actions.ADDING_PLANT });
 
-        dispatch({ 
+        dispatch({
             type: actions.ADDED_PLANT,
             payload: id
         });
@@ -37,20 +37,27 @@ export function getGardenById(id) {
     };
 }
 
+export function immutableGarden(garden, plantId, xPosition, yPosition) {
+    const newGarden = Object.create(garden);
+    const instanceId = shortid.generate();
+    newGarden.plot[instanceId] = {
+        instanceId,
+        plantId,
+        xPosition,
+        yPosition
+    };
+    return newGarden;
+}
+
 export function plotClicked(verb, garden, plantId, xPosition, yPosition) {
-    if(verb === 'ADD') {
+    if (verb === 'ADD') {
         return dispatch => {
             dispatch({
-                type: actions.ADDING_PLANT });
-            
-            const newGarden = Object.create(garden);
-            const instanceId = shortid.generate();
-            newGarden.plot[instanceId] = {
-                instanceId,
-                plantId,
-                xPosition,
-                yPosition
-            };
+                type: actions.ADDING_PLANT
+            });
+
+            const newGarden = immutableGarden(garden, plantId, xPosition, yPosition);
+
             gardensApi.update(newGarden)
                 .then(newGarden => {
                     dispatch({
@@ -66,13 +73,13 @@ export function plotClicked(verb, garden, plantId, xPosition, yPosition) {
                 });
         };
     }
-    if(verb === 'REMOVE') {
+    if (verb === 'REMOVE') {
         return dispatch => {
             dispatch({ type: actions.REMOVING_PLANT });
 
             const newGarden = Object.create(garden);
             newGarden.plot[plantId] = null;
-            
+
             gardensApi.update(newGarden)
                 .then(newGarden => {
                     dispatch({

@@ -3,7 +3,7 @@ import superagent from 'superagent';
 
 let token = '';
 
-const storage = localStorage;
+const storage = window.localStorage;
 
 store.subscribe(() => {
     const { token: newToken } = store.getState().auth;
