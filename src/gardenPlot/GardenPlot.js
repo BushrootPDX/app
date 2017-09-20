@@ -3,13 +3,13 @@ import React from 'react';
 export default function GardenPlot( props ) {
 
     const {garden, plotClicked, selectedPlant, activeAction} = props;
-    const { _id, width, height, plot } = garden;
+    const { _id, width, length, plot } = garden;
 
 
     return (
         <div id={_id}>
             <div
-                style={renderPlot(width, height)}
+                style={renderPlot(width, length)}
                 onClick={event => {
                     const x = event.screenX;
                     const y = event.screenY;
