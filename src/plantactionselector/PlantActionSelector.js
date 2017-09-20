@@ -6,7 +6,6 @@ export default class PlantActionSelector extends Component {
         this.props.actionReset();
     }
     render() {
-        const { activeAction } = this.props;
         const { addPlantInstance, removePlantInstance } = this.props;
 
         return (
