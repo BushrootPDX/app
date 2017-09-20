@@ -8,12 +8,16 @@ import GardenActionSelectorContainer from '../gardenactionselector/GardenActionS
 
 export default class Garden extends Component {
     componentDidMount() {
-        // this.props.getGardenById(this.props.location.params.id);
+        const {id} = this.props.location;
+        if(id) this.props.getGardenById(id);
     }
     render() {
         const { loading, garden, error } = this.props;
-
+        console.log(this.props.location);
+        const {id} = this.props.location;
         if (loading) return <div>Loading...</div>;
+        if(!id) return <div><GardenBuilder newGarden={this.props.newGarden} /></div>;
+
         return (
             <div>
                 <GardenBuilder {...this.props} />
