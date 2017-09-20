@@ -6,7 +6,7 @@ export default class PlantActionSelector extends Component {
         this.props.actionReset();
     }
     render() {
-        const { addPlantInstance, removePlantInstance } = this.props;
+        const { addAction, removeAction } = this.props;
 
         return (
             <div>
@@ -14,14 +14,14 @@ export default class PlantActionSelector extends Component {
                     type="submit"
                     onClick={event => {
                         event.preventDefault();
-                        addPlantInstance();
+                        addAction();
                     }}
                 >Add</button>
                 <button
                     type="submit"
                     onClick={event => {
                         event.preventDefault();
-                        removePlantInstance();
+                        removeAction();
                     }}
                 >Remove</button>
             </div>

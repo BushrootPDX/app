@@ -1,8 +1,9 @@
 
 import * as actions from './constants';
-import api from '../services/gardensApi';
+import gardensApi from '../services/gardensApi';
+import plantInstancesApi from '../services/plantInstancesApi';
 
-export function addPlant(id) {
+export function addPlantInstance(id) {
 
     return dispatch => {
         dispatch({ type: actions.ADDING_PLANT });
@@ -20,7 +21,7 @@ export function getGardenById(id) {
             type: actions.FETCHING_GARDEN
         });
 
-        api.get(id)
+        gardensApi.get(id)
             .then(garden => {
                 dispatch({
                     type: actions.FETCHED_GARDEN,
@@ -34,4 +35,32 @@ export function getGardenById(id) {
                 });
             });
     };
+}
+
+export function plotClicked(verb, id, xPosition, yPosition) {
+    if(verb === 'ADD') {
+        return dispatch => {
+            dispatch({
+                type: actions.ADDING_PLANT });
+            
+            // make sure this format works below..
+            plantInstancesApi.put({
+                plant: id,
+                xPosition,
+                yPosition
+            })
+                .then(plantInstance => {
+                    dispatch({
+                        type: actions.ADDED_PLANT,
+                        payload: plantInstance
+                    });
+                })
+                .catch(error => {
+                    dispatch({
+                        type: actions.ADD_PLANT_ERROR,
+                        payload: error
+                    });
+                });
+        };
+    }
 }

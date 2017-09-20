@@ -5,6 +5,9 @@ export function garden(state = {}, { type, payload }) {
     switch(type) {
     case actions.FETCHED_GARDEN:
         return payload;
+    case actions.ADDED_PLANT:
+        // need to push 
+        return { plot: }
     default: return state;
     }
 }
@@ -30,4 +33,6 @@ export function gardenLoading(state = false, { type, paylaod }) {
     default: return state;
     }
 }
+
+
 
