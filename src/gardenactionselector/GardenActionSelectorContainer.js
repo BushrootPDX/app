@@ -1,16 +1,19 @@
 import { connect } from 'react-redux';
 import { saveGarden, deleteGarden } from './actions';
-import GardenActionSelector from './GardenActionSelector';
 import { bindActionCreators } from 'redux';
+import GardenActionSelector from './GardenActionSelector';
 
-const mapStateToProps = state => {
-    id: state.garden._id;
-};
+const mapStateToProps = state => ({
+    garden: state.garden
+});
 
-const mapDispatchToProps = dispatch => {
+function mapDispatchToProps (dispatch) {
     return bindActionCreators({ saveGarden, deleteGarden }, dispatch);
-};
+}
 
 const GardenActionSelectorContainer = connect(
-    mapStateToProps, mapDispatchToProps
+    mapStateToProps,
+    mapDispatchToProps
 )(GardenActionSelector);
+
+export default GardenActionSelectorContainer;
