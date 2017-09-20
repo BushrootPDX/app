@@ -11,7 +11,7 @@ export default function GardenPlot( {garden, plotClicked, movePlant, selectedPla
                 onClick={event => {
                     const x = event.screenX;
                     const y = event.screenY;
-                    if (event.target.id === _id) return plotClicked(activeAction, selectedPlant._id, x, y);
+                    if (event.target.id === _id) return plotClicked(activeAction, _id, selectedPlant._id, x, y);
                     plotClicked(activeAction, event.target._id, x, y);
                 }}>
                 {plot[0] && plot.map(plant => {

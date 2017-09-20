@@ -37,7 +37,7 @@ export function getGardenById(id) {
     };
 }
 
-export function plotClicked(verb, id, xPosition, yPosition) {
+export function plotClicked(verb, gardenId, plantId, xPosition, yPosition) {
     if(verb === 'ADD') {
         return dispatch => {
             dispatch({
@@ -45,14 +45,15 @@ export function plotClicked(verb, id, xPosition, yPosition) {
             
             // make sure this format works below..
             plantInstancesApi.add({
-                plant: id,
+                garden: gardenId,
+                plant: plantId,
                 xPosition,
                 yPosition
             })
-                .then(plantInstance => {
+                .then(newPlot => {
                     dispatch({
                         type: actions.ADDED_PLANT,
-                        payload: plantInstance
+                        payload: newPlot
                     });
                 })
                 .catch(error => {

@@ -8,9 +8,7 @@ export function garden(state = {}, { type, payload }) {
     case actions.ADDED_PLANT:
         // need to push 
         return { 
-            plot: [ 
-                payload, 
-                ...state.plot ], 
+            plot: payload,  
             ...state };
     case actions.REMOVED_PLANT:{
         const newPlot = state.plot.slice();
