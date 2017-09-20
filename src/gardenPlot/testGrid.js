@@ -4,9 +4,8 @@ import '../../node_modules/react-resizable/css/styles.css';
 import '../../node_modules/react-grid-layout/css/styles.css';
 import styled from 'styled-components';
 
-const StyledLayout = styled.div`
-    
-
+const StyledLayout = styled.section`
+margin: auto;
 `;
 
 export default class MyFirstGrid extends Component {
@@ -19,19 +18,19 @@ export default class MyFirstGrid extends Component {
         ];
         return (
             
-            
-            <ReactGridLayout className="layout" layout={layout} useCSSTransforms={true} cols={12} verticalCompact={false} rowHeight={30} width={1200}
-                style={{
-                    backgroundColor:'grey',
-                    display:'block',
-                    margin:'auto'
-                }}
-            >
-                <div style={{border:'solid 1px'}}key={'tomato'}>tomato</div>
-                <div style={{border:'solid 1px'}}key={'carrot'}>carrot</div>
-                <div style={{border:'solid 1px'}}key={'corn'}>corn</div>
-            </ReactGridLayout>    
-            
+            <StyledLayout>
+                <ReactGridLayout className="layout" layout={layout} useCSSTransforms={true} cols={12} verticalCompact={false} rowHeight={30} width={1200}
+                    style={{
+                        backgroundColor:'grey',
+                        display:'block',
+                        margin:'auto'
+                    }}
+                >
+                    <div style={{border:'solid 1px'}}key={'tomato'}>tomato</div>
+                    <div style={{border:'solid 1px'}}key={'carrot'}>carrot</div>
+                    <div style={{border:'solid 1px'}}key={'corn'}>corn</div>
+                </ReactGridLayout>    
+            </StyledLayout>
             
         );
     }
