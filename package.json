@@ -1,6 +1,6 @@
 {
   "proxy": "http://localhost:3001",
-  "name": "bushroot-frontend",
+  "name": "app",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -19,7 +19,8 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "react-scripts build && npm run copy",
+    "copy": "rm -rf ../server/public && cp -R ./build ../server/public",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   },
@@ -30,11 +31,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/BushrootPDX/bushroot-frontend.git"
+    "url": "git+https://github.com/BushrootPDX/app.git"
   },
   "author": "Christopher Thomson, Mark Petrie, Joe Churchman, Andrew Potter",
   "bugs": {
-    "url": "https://github.com/BushrootPDX/bushroot-frontend/issues"
-  },
-  "homepage": "https://github.com/BushrootPDX/bushroot-api#readme"
+    "url": "https://github.com/BushrootPDX/app/issues"
+  }
 }

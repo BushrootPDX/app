@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PlantTile component renders a plant tyle component with listening functions 1`] = `
+<div
+  id="123"
+  onClick={[Function]}
+>
+  <img
+    alt="po"
+    src="image"
+  />
+  <h6>
+    po
+  </h6>
+  <button
+    onClick={[Function]}
+  >
+    remove
+  </button>
+  <button
+    onClick={[Function]}
+  >
+    view
+  </button>
+</div>
+`;

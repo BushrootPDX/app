@@ -1,4 +1,3 @@
-
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { withRouter } from 'react-router';
@@ -9,7 +8,9 @@ import Garden from './Garden';
 function mapStateToProps(state) {
     return {
         selectedPlant: state.selectedPlant,
-        garden: state.garden
+        garden: state.garden,
+        error: state.error,
+        loading: state.loading
     };
 }
 
