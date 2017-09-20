@@ -1,5 +1,6 @@
 
 import * as actions from './constants';
+import api from '../services/gardensApi';
 
 export function addPlant(id) {
 
@@ -10,5 +11,27 @@ export function addPlant(id) {
             type: actions.ADDED_PLANT,
             payload: id
         });
+    };
+}
+
+export function getGardenById(id) {
+    return dispatch => {
+        dispatch({
+            type: actions.FETCHING_GARDEN
+        });
+
+        api.get(id)
+            .then(garden => {
+                dispatch({
+                    type: actions.FETCHED_GARDEN,
+                    payload: garden
+                });
+            })
+            .catch(error => {
+                dispatch({
+                    type: actions.FETCHED_GARDEN_ERROR,
+                    payload: error
+                });
+            });
     };
 }
