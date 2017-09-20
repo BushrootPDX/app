@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function GardenPlot( {garden, plotClicked, movePlant} ) {
+export default function GardenPlot( {garden, plotClicked, movePlant, selectedPlant, activeAction} ) {
     const { _id, width, height, plot } = garden;
 
 
@@ -11,7 +11,8 @@ export default function GardenPlot( {garden, plotClicked, movePlant} ) {
                 onClick={event => {
                     const x = event.screenX;
                     const y = event.screenY;
-                    if (event.target.id === _id) plotClicked(x, y);
+                    if (event.target.id === _id) return plotClicked(activeAction, selectedPlant._id, x, y);
+                    plotClicked(activeAction, event.target._id, x, y);
                 }}>
                 {plot[0] && plot.map(plant => {
                     return <img

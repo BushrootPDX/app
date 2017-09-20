@@ -52,8 +52,8 @@ export default {
             );
     },
 
-    delete(plantInstance) {
-        return request.delete(`${URL}/${plantInstance._id}`)
+    delete(id) {
+        return request.delete(`${URL}/${id}`)
             .then(
                 r => r.body,
                 ({ response }) => {

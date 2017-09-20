@@ -7,7 +7,21 @@ export function garden(state = {}, { type, payload }) {
         return payload;
     case actions.ADDED_PLANT:
         // need to push 
-        return { plot: }
+        return { 
+            plot: [ 
+                payload, 
+                ...state.plot ], 
+            ...state };
+    case actions.REMOVED_PLANT:{
+        const newPlot = state.plot.slice();
+        const index = newPlot.findIndex(instance => instance._id === payload);
+        return {
+            plot: [
+                newPlot.slice(0, index),
+                newPlot.slice(index+1)
+            ],
+            ...state
+        };}
     default: return state;
     }
 }

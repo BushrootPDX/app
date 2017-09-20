@@ -44,7 +44,7 @@ export function plotClicked(verb, id, xPosition, yPosition) {
                 type: actions.ADDING_PLANT });
             
             // make sure this format works below..
-            plantInstancesApi.put({
+            plantInstancesApi.add({
                 plant: id,
                 xPosition,
                 yPosition
@@ -58,6 +58,25 @@ export function plotClicked(verb, id, xPosition, yPosition) {
                 .catch(error => {
                     dispatch({
                         type: actions.ADD_PLANT_ERROR,
+                        payload: error
+                    });
+                });
+        };
+    }
+    if(verb === 'REMOVE') {
+        return dispatch => {
+            dispatch({ type: actions.REMOVING_PLANT });
+
+            plantInstancesApi.delete(id)
+                .then(instanceId => {
+                    dispatch({
+                        type: actions.REMOVED_PLANT,
+                        payload: instanceId
+                    });
+                })
+                .catch(error => {
+                    dispatch({
+                        type: actions.REMOVE_PLANT_ERROR,
                         payload: error
                     });
                 });

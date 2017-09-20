@@ -10,7 +10,8 @@ function mapStateToProps(state) {
         selectedPlant: state.selectedPlant,
         garden: state.garden,
         error: state.error,
-        loading: state.loading
+        loading: state.loading,
+        activeAction: state.activeAction
     };
 }
 
