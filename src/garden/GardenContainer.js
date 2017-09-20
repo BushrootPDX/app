@@ -1,6 +1,5 @@
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { withRouter } from 'react-router';
 import { getGardenById, plotClicked, newGarden } from './actions';
 
 import Garden from './Garden';

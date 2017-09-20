@@ -8,7 +8,7 @@ import GardenActionSelectorContainer from '../gardenactionselector/GardenActionS
 
 export default class Garden extends Component {
     componentDidMount() {
-        this.props.getGardenById(this.props.location.params.id);
+        // this.props.getGardenById(this.props.location.params.id);
     }
     render() {
         const { loading, garden, error } = this.props;

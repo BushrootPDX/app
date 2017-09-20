@@ -17,7 +17,7 @@ export default function GardenPlot( props ) {
                     plotClicked(activeAction, _id, event.target._id, x, y);
                 }}>
                 {plot && Object.keys(plot).map(key => {
-                    const {instanceId, img, xPosition, yPosition, spread, type} = plot[key];
+                    const {instanceId, img, xPosition, yPosition, type} = plot[key];
 
                     const xVal = xPosition;
                     const yVal = yPosition;

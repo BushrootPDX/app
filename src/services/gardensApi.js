@@ -31,15 +31,7 @@ export default {
 
 
     add(garden) {
-        return request.post(URL, garden)
-            .then(
-                r => r.body,
-                ({ response }) => {
-                    const { body, text } = response;
-                    const error = body ? body.message || body.error || body : text;
-                    throw error;
-                }
-            );
+        return request.post(URL, garden);
     },
 
     update(garden) {

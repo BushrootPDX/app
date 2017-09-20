@@ -27,8 +27,7 @@ export function newGarden(garden) {
                     type: actions.ADDED_GARDEN,
                     payload: saved
                 });
-            })
-            .catch(error => {
+            }, error => {
                 dispatch({
                     type: actions.ADD_GARDEN_ERROR,
                     payload: error
