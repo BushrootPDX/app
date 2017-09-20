@@ -1,7 +1,8 @@
 
 import React, { Component } from 'react';
-import GardenPlot from './GardenPlot';
+import GardenPlot from '../gardenPlot/GardenPlot';
 import PlantSearch from '../plantsearch/PlantSearch';
+import GardenBuilder from '../gardenBuilder/GardenBuilder';
 
 export default class Garden extends Component {
     componentDidMount() {
@@ -17,6 +18,7 @@ export default class Garden extends Component {
                 {error && error.map(err => <pre>{err}</pre>)}
                 <PlantSearch />
                 <GardenPlot { ...this.props } />
+                <GardenBuilder {...this.props}/>
             </div>
         );
     }

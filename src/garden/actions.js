@@ -15,6 +15,28 @@ export function addPlantInstance(id) {
     };
 }
 
+export function newGarden(garden) {
+    return dispatch => {
+        dispatch({
+            type: actions.ADDING_GARDEN
+        });
+
+        gardensApi.add(garden)
+            .then(saved => {
+                dispatch({
+                    type: actions.ADDED_GARDEN,
+                    payload: saved
+                });
+            })
+            .catch(error => {
+                dispatch({
+                    type: actions.ADD_GARDEN_ERROR,
+                    payload: error
+                });
+            });
+    };
+}
+
 export function getGardenById(id) {
     return dispatch => {
         dispatch({
