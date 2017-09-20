@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { withRouter } from 'react-router';
-import { getGardenById, movePlant, plotClicked, newGarden } from './actions';
+import { getGardenById, plotClicked, newGarden } from './actions';
 
 import Garden from './Garden';
 
@@ -16,12 +16,12 @@ function mapStateToProps(state) {
 }
 
 function mapDispatchToProps(dispatch) {
-    return bindActionCreators( { getGardenById, plotClicked, movePlant, newGarden }, dispatch);
+    return bindActionCreators( { getGardenById, plotClicked, newGarden }, dispatch);
 }
 
 const GardenContainer = connect(
     mapStateToProps,
     mapDispatchToProps
-)(withRouter(Garden));
+)(Garden);
 
 export default GardenContainer;

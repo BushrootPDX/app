@@ -14,8 +14,7 @@ export function checkForToken() {
             .then(() => authApi.getUser())
             .then(user => {
                 dispatch({ type: actions.FETCHED_USER, payload: user });
-            })
-            .catch(error => {
+            }, error => {
                 dispatch({ type: actions.AUTH_FAILED, payload: error });
             });
     };
@@ -27,8 +26,7 @@ export function signin(credentials) {
             .then(({ userId, token }) => {
                 dispatch({ type: actions.GOT_TOKEN, payload: token });
                 dispatch({ type: actions.FETCHED_USER, payload: userId });
-            })
-            .catch(error => {
+            }, error => {
                 dispatch({ type: actions.AUTH_FAILED, payload: error });
             });
     };
