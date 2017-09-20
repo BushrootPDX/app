@@ -1,7 +1,7 @@
 
 import * as actions from './constants';
 import gardensApi from '../services/gardensApi';
-import plantInstancesApi from '../services/plantInstancesApi';
+import shortid from 'shortid';
 
 export function addPlantInstance(id) {
 
@@ -37,23 +37,25 @@ export function getGardenById(id) {
     };
 }
 
-export function plotClicked(verb, gardenId, plantId, xPosition, yPosition) {
+export function plotClicked(verb, garden, plantId, xPosition, yPosition) {
     if(verb === 'ADD') {
         return dispatch => {
             dispatch({
                 type: actions.ADDING_PLANT });
             
-            // make sure this format works below..
-            plantInstancesApi.add({
-                garden: gardenId,
-                plant: plantId,
+            const newGarden = Object.create(garden);
+            const instanceId = shortid.generate();
+            newGarden.plot[instanceId] = {
+                instanceId,
+                plantId,
                 xPosition,
                 yPosition
-            })
-                .then(newPlot => {
+            };
+            gardensApi.update(newGarden)
+                .then(newGarden => {
                     dispatch({
                         type: actions.ADDED_PLANT,
-                        payload: newPlot
+                        payload: newGarden
                     });
                 })
                 .catch(error => {
@@ -68,11 +70,14 @@ export function plotClicked(verb, gardenId, plantId, xPosition, yPosition) {
         return dispatch => {
             dispatch({ type: actions.REMOVING_PLANT });
 
-            plantInstancesApi.delete({gardenId, plantId})
-                .then(newPlot => {
+            const newGarden = Object.create(garden);
+            newGarden.plot[plantId] = null;
+            
+            gardensApi.update(newGarden)
+                .then(newGarden => {
                     dispatch({
                         type: actions.REMOVED_PLANT,
-                        payload: newPlot
+                        payload: newGarden
                     });
                 })
                 .catch(error => {

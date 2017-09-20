@@ -4,22 +4,9 @@ import * as actions from './constants';
 export function garden(state = {}, { type, payload }) {
     switch(type) {
     case actions.FETCHED_GARDEN:
-        return payload;
     case actions.ADDED_PLANT:
-        // need to push 
-        return { 
-            plot: payload,  
-            ...state };
-    case actions.REMOVED_PLANT:{
-        const newPlot = state.plot.slice();
-        const index = newPlot.findIndex(instance => instance._id === payload);
-        return {
-            plot: [
-                newPlot.slice(0, index),
-                newPlot.slice(index+1)
-            ],
-            ...state
-        };}
+    case actions.REMOVED_PLANT:
+        return payload;
     default: return state;
     }
 }

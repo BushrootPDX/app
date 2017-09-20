@@ -1,6 +1,8 @@
 import React from 'react';
 
-export default function GardenPlot( {garden, plotClicked, movePlant, selectedPlant, activeAction} ) {
+export default function GardenPlot( props ) {
+
+    const {garden, plotClicked, selectedPlant, activeAction} = props;
     const { _id, width, height, plot } = garden;
 
 
@@ -11,23 +13,27 @@ export default function GardenPlot( {garden, plotClicked, movePlant, selectedPla
                 onClick={event => {
                     const x = event.screenX;
                     const y = event.screenY;
-                    if (event.target.id === _id) return plotClicked(activeAction, _id, selectedPlant._id, x, y);
-                    plotClicked(activeAction, _id,event.target._id, x, y);
+                    if (event.target.id === _id) return plotClicked(activeAction, garden, selectedPlant._id, x, y);
+                    plotClicked(activeAction, _id, event.target._id, x, y);
                 }}>
-                {plot[0] && plot.map(plant => {
+                {plot && Object.keys(plot).map(key => {
+                    const {instanceId, img, xPosition, yPosition, spread, type} = plot[key];
+
+                    const xVal = xPosition;
+                    const yVal = yPosition;
+                    const transform = `translate( ${ xVal }px, ${ yVal }px)`;
+
                     return <img
-                        src={plant.img}
-                        style={renderPlantIcon(plant.xPosition, plant.yPosition, plant.spread)}
-                        alt={plant.type} />;
+                        id={instanceId}
+                        src={img}
+                        style={{transform}}
+                        alt={type} />;
                 })}
             </div>
         </div>
     );
 }
 
-function renderPlantIcon(x, y, s) {
-    return { left: x, bottom: y, width: `${s}vw`, height: `${s}vw` };
-}
 
 function renderPlot(w, h) {
     return { width: `${w}vw`, height: `${h}vw` };
