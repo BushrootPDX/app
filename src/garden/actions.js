@@ -68,11 +68,11 @@ export function plotClicked(verb, gardenId, plantId, xPosition, yPosition) {
         return dispatch => {
             dispatch({ type: actions.REMOVING_PLANT });
 
-            plantInstancesApi.delete(id)
-                .then(instanceId => {
+            plantInstancesApi.delete({gardenId, plantId})
+                .then(newPlot => {
                     dispatch({
                         type: actions.REMOVED_PLANT,
-                        payload: instanceId
+                        payload: newPlot
                     });
                 })
                 .catch(error => {

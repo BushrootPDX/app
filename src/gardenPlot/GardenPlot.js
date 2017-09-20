@@ -12,7 +12,7 @@ export default function GardenPlot( {garden, plotClicked, movePlant, selectedPla
                     const x = event.screenX;
                     const y = event.screenY;
                     if (event.target.id === _id) return plotClicked(activeAction, _id, selectedPlant._id, x, y);
-                    plotClicked(activeAction, event.target._id, x, y);
+                    plotClicked(activeAction, _id,event.target._id, x, y);
                 }}>
                 {plot[0] && plot.map(plant => {
                     return <img

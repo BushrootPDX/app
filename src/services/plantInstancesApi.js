@@ -52,8 +52,8 @@ export default {
             );
     },
 
-    delete(id) {
-        return request.delete(`${URL}/${id}`)
+    delete({gardenId, plantId}) {
+        return request.delete(`${URL}/${plantId}`)
             .then(
                 r => r.body,
                 ({ response }) => {
