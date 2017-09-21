@@ -1,8 +1,8 @@
 import React from 'react';
 
 export default function GardenBuilder( props ) {
-    const { newGarden } = props;
-
+    const { newGarden, user } = props;
+    
     return (
         <div>
             <form onSubmit={e => {
@@ -11,6 +11,7 @@ export default function GardenBuilder( props ) {
                 const w = parseInt(feetWidth.value * 12) + parseInt(inchWidth.value); //eslint-disable-line
                 const l = parseInt(feetLength.value * 12) + parseInt(inchLength.value); //eslint-disable-line
                 newGarden({
+                    userId: user._id,
                     name: name.value,
                     width: w,
                     length: l

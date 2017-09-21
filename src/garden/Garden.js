@@ -13,14 +13,12 @@ export default class Garden extends Component {
     }
     render() {
         const { loading, garden, error } = this.props;
-        console.log(this.props.location);
         const {id} = this.props.location;
         if (loading) return <div>Loading...</div>;
-        if(!id) return <div><GardenBuilder newGarden={this.props.newGarden} /></div>;
+        if(!id) return <div><GardenBuilder newGarden={this.props.newGarden} user={this.props.user} /></div>;
 
         return (
             <div>
-                <GardenBuilder {...this.props} />
                 <h2>{garden.name}</h2>
                 {error && error.map(err => <pre>{err}</pre>)}
                 <PlantSearch />

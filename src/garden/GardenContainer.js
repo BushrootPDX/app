@@ -6,6 +6,7 @@ import Garden from './Garden';
 
 function mapStateToProps(state) {
     return {
+        user: state.auth.user,
         selectedPlant: state.selectedPlant,
         garden: state.garden,
         error: state.error,

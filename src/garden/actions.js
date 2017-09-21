@@ -22,10 +22,14 @@ export function newGarden(garden) {
         });
 
         gardensApi.add(garden)
-            .then(saved => {
+            .then(({savedGarden, updatedUser}) => {
                 dispatch({
                     type: actions.ADDED_GARDEN,
-                    payload: saved
+                    payload: savedGarden
+                });
+                dispatch({
+                    type: 'FETCHED_USER',
+                    payload: updatedUser
                 });
             }, error => {
                 dispatch({
