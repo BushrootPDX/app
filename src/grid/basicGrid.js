@@ -26,6 +26,7 @@ export default class BasicGrid extends Component {
         return (
             
             <StyledLayout>
+                {/* {garden.name} */}
                 <ReactGridLayout 
                     className="layout" 
                     layout={layout}
