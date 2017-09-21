@@ -14,7 +14,7 @@ export class PlantSearch extends Component {
         const { selectedPlant, plants, selectPlant, recentlyViewed } = this.props;
 
         const SearchDiv = styled.div`
-            max-width: 25%;
+            width: 25%;
             border-style: solid;
             border-width: 2px;
             img {
