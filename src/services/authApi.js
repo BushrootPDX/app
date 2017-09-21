@@ -11,6 +11,6 @@ export default {
         return request.post('/auth/signup', user);
     },
     getUser() {
-        return request.get('/me');
+        return request.get('/auth/login');
     }
 };
