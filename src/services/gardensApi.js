@@ -12,10 +12,12 @@ export default {
         return request.get(`${URL}/${id}`);
     },
 
-
-
     add(garden) {
         return request.post(URL, garden);
+    },
+
+    updateGarden(garden){
+        return request.put(`${URL}/${garden._id}`);
     },
 
     updatePlot(id, plot) {

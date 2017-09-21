@@ -17,7 +17,7 @@ export default function PlantDetail( props ) {
         <div id={_id}>
             <img src={image} alt={name}/>
             <h3>{name}</h3>
-            <h5>{scientific_name}</h5>
+            <h4>{scientific_name}</h4>
             <h5>{description}</h5>
             <h5>Size:</h5><span>{spread}in. X {height}in. </span> 
             <h5>Sunlight Preference: </h5><span>{sun_requirements}</span>

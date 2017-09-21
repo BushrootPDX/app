@@ -12,7 +12,7 @@ import {
     plantsError, 
     plantsLoading, 
     selectedPlant,
-    recentlyViewed,
+    recentlyViewed
 } from '../plantsearch/reducers';
 
 export default combineReducers({

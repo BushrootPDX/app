@@ -16,12 +16,11 @@ export function addPlantInstance(id) {
     };
 }
 
-export function newGarden(garden) {
+export function newGarden(garden, goToGarden) {
     return dispatch => {
         dispatch({
             type: actions.ADDING_GARDEN
         });
-
         gardensApi.add(garden)
             .then(({savedGarden, slimUser}) => {
                 dispatch({
@@ -32,6 +31,7 @@ export function newGarden(garden) {
                     type: 'FETCHED_USER',
                     payload: slimUser
                 });
+                goToGarden(savedGarden._id);
             }, error => {
                 dispatch({
                     type: actions.ADD_GARDEN_ERROR,

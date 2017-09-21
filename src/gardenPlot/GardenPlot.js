@@ -16,9 +16,18 @@ export default function GardenPlot( props ) {
     height:${garden.length};
     `;
 
+    const PlotDiv = styled.div`
+        display: inline-block;
+        float: right;
+        margin-left: 25%;
+        border-style: solid;
+        border-width: 2px;
+        border-color: green;
+    `;
 
     return (
-        <StyledLayout >
+        
+        <PlotDiv>
             <div
                 id={_id}
                 style={renderPlot(width, length)}
@@ -43,7 +52,8 @@ export default function GardenPlot( props ) {
                 })}
                 <BasicGrid garden={ garden } plot={ plot }/>
             </div>
-        </StyledLayout>
+        
+        </PlotDiv>
     );
 }
 
