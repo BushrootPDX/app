@@ -5,6 +5,7 @@ import MinPlantList from './MinPlantList';
 import PlantDetail from '../plantdetail/PlantDetail';
 import { selectPlant } from './actions';
 import { bindActionCreators } from 'redux';
+import styled from 'styled-components';
 
 
 export class PlantSearch extends Component {
@@ -12,13 +13,33 @@ export class PlantSearch extends Component {
     render() {
         const { selectedPlant, plants, selectPlant, recentlyViewed } = this.props;
 
+        const SearchDiv = styled.div`
+            max-width: 25%;
+            border-style: solid;
+            border-width: 2px;
+            img {
+                width: 50%;
+                display: block;
+                margin: auto;
+            };
+            h3, h4 {
+                text-align: center;
+            };
+            form {
+                display: block;
+                margin: auto;
+                width: 90%;
+            };
+        `;
+
         return (
             <div>
-                <SearchBarContainer />
-                <MinPlantList plants={plants} selectPlant={selectPlant} />
-                { selectedPlant._id && <PlantDetail selectedPlant={selectedPlant} /> }
-                <MinPlantList plants={recentlyViewed} selectPlant={selectPlant} />
-
+                <SearchDiv>
+                    <SearchBarContainer />
+                    <MinPlantList plants={plants} selectPlant={selectPlant} />
+                    { selectedPlant._id && <PlantDetail selectedPlant={selectedPlant} /> }
+                    <MinPlantList plants={recentlyViewed} selectPlant={selectPlant} />
+                </SearchDiv>
             </div>
         );
     }

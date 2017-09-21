@@ -11,18 +11,16 @@ export default class SearchBar extends Component {
         const { queryChange, queryPlantDb } = this.props;
 
         return (
-            <form 
-                onSubmit={event => {
-                    event.preventDefault();
-                    queryPlantDb(queryField);
-                }}>
+            <form onSubmit={event => {
+                event.preventDefault();
+                queryPlantDb(queryField);
+            }}>
                 <input
                     type="text"
                     value={queryField}
                     onChange={({ target }) => queryChange(target.value)}
                 ></input>
-                <button type="submit" 
-                >Search</button>
+                <button type="submit">Search</button>
             </form>
         );
     }
