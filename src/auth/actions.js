@@ -35,9 +35,9 @@ export function signin(credentials) {
 export function signup(user) {
     return dispatch => {
         authApi.signup(user)
-            .then(({ userId, token }) => {
+            .then(({ user, token }) => {
                 dispatch({ type: actions.GOT_TOKEN, payload: token });
-                dispatch({ type: actions.FETCHED_USER, payload: userId });
+                dispatch({ type: actions.FETCHED_USER, payload: user });
             })
             .catch(error => {
                 dispatch({ type: actions.AUTH_FAILED, payload: error });
