@@ -13,18 +13,22 @@ export default class Garden extends Component {
     }
     render() {
         const { loading, garden, error } = this.props;
-        const {id} = this.props.match.params;
+        // const {id} = this.props.match.params;
         if (loading) return <div>Loading...</div>;
-        if(!id) return <div><GardenBuilder newGarden={this.props.newGarden} user={this.props.user} /></div>;
-
+        
         return (
             <div>
-                <h2>{garden.name}</h2>
+                {this.props.match.params && <div><GardenBuilder newGarden={this.props.newGarden} /></div>}
                 {error && error.map(err => <pre>{err}</pre>)}
-                <PlantSearch />
-                <PlantActionSelectContainer {...this.props} />
-                <GardenPlot { ...this.props } />
-                <GardenActionSelectorContainer/>
+                {!this.props.match.params && (
+                    <div>
+                        <h2>{garden.name}</h2>
+                        <PlantSearch />
+                        <PlantActionSelectContainer {...this.props} />
+                        <GardenPlot { ...this.props } />
+                        <GardenActionSelectorContainer/>
+                    </div>
+                )}
             </div>
         );
     }
