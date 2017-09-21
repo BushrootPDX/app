@@ -3,7 +3,7 @@ import gardensApi from '../services/gardensApi';
 
 export const makeSaveGarden = gardensApi => garden => dispatch => {
     dispatch({ type: actions.SAVING_GARDEN });
-    return gardensApi.update(garden)
+    return gardensApi.updateGarden(garden)
         .then(saved => {
             dispatch({
                 type: actions.SAVED_GARDEN,
@@ -23,13 +23,13 @@ export const makeDeleteGarden = gardensApi => garden => dispatch => {
     console.log('garden action thingits the only console log', garden);
     dispatch({ type: actions.DELETING_GARDEN });
     return gardensApi.delete(garden)
-        .then(newUser => {
+        .then(({response, revisedUser}) => {
             dispatch({
                 type: actions.DELETED_GARDEN
             });
             dispatch({
                 type: 'FETCHED_USER',
-                payload: newUser
+                payload: revisedUser
             });
         },
         error => {

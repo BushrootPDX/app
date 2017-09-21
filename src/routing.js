@@ -23,8 +23,8 @@ export const TopBar = () => (
             <Route path="/auth" render={() => <Auth/>}/>
             <PrivateRoute path="/dashboard" render={() => <App/>}/>
             <Route exact path="/" component={Home}/>
-            <PrivateRoute path="/gardens" component={GardenContainer}/>
-            {/* <PrivateRoute path="/gardens/:id" component={GardenContainer}/> */}
+            {/* <PrivateRoute path="/gardens" component={GardenContainer}/> */}
+            <PrivateRoute path="/gardens/:id" component={GardenContainer}/>
             <Redirect to="/"/>
         </Switch>
     </div>
