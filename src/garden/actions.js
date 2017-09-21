@@ -64,14 +64,9 @@ export function getGardenById(id) {
 
 export function plotClicked( garden, plantId, xPosition, yPosition) {
     return (dispatch, getState) => { 
-<<<<<<< HEAD
-        const { activeAction: verb } = getState();
-        if(verb === 'ADD') {
-=======
         const { activeAction } = getState();
         if(activeAction === 'ADD') {
             
->>>>>>> 51a0bf3036cbc9cc1042f3964f7b54544a737e53
             dispatch({
                 type: actions.ADDING_PLANT });
             
@@ -106,17 +101,10 @@ export function plotClicked( garden, plantId, xPosition, yPosition) {
                     });
                 });
         }
-<<<<<<< HEAD
-        if(verb === 'REMOVE') {
-            dispatch({
-                type: actions.REMOVING_PLANT });
-    
-=======
         if(activeAction === 'REMOVE') {
             dispatch({ 
                 type: actions.REMOVING_PLANT });
 
->>>>>>> 51a0bf3036cbc9cc1042f3964f7b54544a737e53
             const newGarden = Object.create(garden);
             newGarden.plot[plantId] = null;
                 
@@ -137,13 +125,6 @@ export function plotClicked( garden, plantId, xPosition, yPosition) {
                         payload: error
                     });
                 });
-<<<<<<< HEAD
-
         }
     };
 }
-=======
-        }
-    };
-}
->>>>>>> 51a0bf3036cbc9cc1042f3964f7b54544a737e53
