@@ -33,14 +33,12 @@ export class PlantSearch extends Component {
         `;
 
         return (
-            <div>
-                <SearchDiv>
-                    <SearchBarContainer />
-                    <MinPlantList plants={plants} selectPlant={selectPlant} />
-                    { selectedPlant._id && <PlantDetail selectedPlant={selectedPlant} /> }
-                    <MinPlantList plants={recentlyViewed} selectPlant={selectPlant} />
-                </SearchDiv>
-            </div>
+            <SearchDiv>
+                <SearchBarContainer />
+                <MinPlantList plants={plants} selectPlant={selectPlant} />
+                { selectedPlant._id && <PlantDetail selectedPlant={selectedPlant} /> }
+                <MinPlantList plants={recentlyViewed} selectPlant={selectPlant} />
+            </SearchDiv>
         );
     }
 }
