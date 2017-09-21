@@ -1,5 +1,10 @@
+
 import { combineReducers } from 'redux';
 import auth from '../auth/reducers';
+
+import { garden, gardenError, gardenLoading } from '../garden/reducers';
+
+
 import { activeAction } from '../plantactionselector/reducers';
 import { queryField } from '../searchbar/reducers';
 import { 
@@ -12,6 +17,9 @@ import {
 
 export default combineReducers({
     auth,
+    garden,
+    gardenError,
+    gardenLoading,
     queryField,
     plants,
     plantsError,

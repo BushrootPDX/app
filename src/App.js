@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import PlantSearch from './plantsearch/PlantSearch';
-
+import DashboardContainer from './dashboard/DashboardContainer';
 import './App.css';
 
 class App extends Component {
@@ -9,8 +8,7 @@ class App extends Component {
         return (
             <div className="App">
                 Hello!
-                <PlantSearch/>
-
+                <DashboardContainer/>
             </div>
         );
     }

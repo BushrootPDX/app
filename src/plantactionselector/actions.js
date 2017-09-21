@@ -1,16 +1,16 @@
 import * as actions from './constants';
 
-export function addPlantInstance() {
+export function addAction() {
     return {
         type: actions.ACTION_CHANGE,
-        payload: 'Add Plant'
+        payload: 'ADD'
     };
 }
 
-export function removePlantInstance() {
+export function removeAction() {
     return {
         type: actions.ACTION_CHANGE,
-        payload: 'Remove Plant'
+        payload: 'REMOVE'
     };
 }
 

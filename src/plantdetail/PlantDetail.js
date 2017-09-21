@@ -13,8 +13,6 @@ export default function PlantDetail( props ) {
         sowing_method
     } = props.selectedPlant;
 
-    console.log(props);
-
     return (
         <div id={_id}>
             <img src={image} alt={name}/>
@@ -26,5 +24,4 @@ export default function PlantDetail( props ) {
             <h5>Sowing Method: </h5><span>{sowing_method}</span>
         </div>
     );
-
 }

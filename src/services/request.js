@@ -3,7 +3,7 @@ import superagent from 'superagent';
 
 let token = '';
 
-const storage = localStorage;
+const storage = window.localStorage;
 
 store.subscribe(() => {
     const { token: newToken } = store.getState().auth;
@@ -35,7 +35,7 @@ export const request = {
         return wrap(superagent.post(`${API_URL}${url}`).send(data));
     },
     put(url, data) {
-        return wrap(superagent.post(`${API_URL}${url}`).send(data));
+        return wrap(superagent.put(`${API_URL}${url}`).send(data));
     },
     delete(url) {
         return wrap(superagent.delete(`${API_URL}${url}`));
