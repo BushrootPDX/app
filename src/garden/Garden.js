@@ -2,7 +2,7 @@
 import React, { Component } from 'react';
 import GardenPlot from '../gardenPlot/GardenPlot';
 import PlantSearch from '../plantsearch/PlantSearch';
-import GardenBuilder from '../gardenBuilder/GardenBuilder';
+import GardenBuilderContainer from '../gardenBuilder/GardenBuilderContainer';
 import PlantActionSelectContainer from '../plantactionselector/PlantActionSelectContainer';
 import GardenActionSelectorContainer from '../gardenactionselector/GardenActionSelectorContainer';
 
@@ -18,7 +18,7 @@ export default class Garden extends Component {
         
         return (
             <div>
-                {!this.props.match.params.id && <div><GardenBuilder newGarden={this.props.newGarden} /></div>}
+                {!this.props.match.params.id && <div><GardenBuilderContainer/></div>}
                 {error && error.map(err => <pre>{err}</pre>)}
                 {this.props.match.params.id && (
                     <div>

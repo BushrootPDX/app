@@ -1,8 +1,10 @@
 import React from 'react';
+// import { bindActionCreators } from 'redux';
+// import { newGarden } from './actions';
 
 export default function GardenBuilder( props ) {
     const { newGarden } = props;
-    
+    console.log('props', props);
     return (
         <div>
             <form onSubmit={e => {
