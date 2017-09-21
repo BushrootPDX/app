@@ -12,9 +12,10 @@ export default class BasicGrid extends Component {
     
     
     render() {
-        
+
         const { garden } = this.props;
         const { onAddInstance, onRemoveInstance } = this.props;
+        // Object.keys(garden.plot).map() = layout
         // layout is an array of objects, see the demo for more complete usage
         var layout = [
             {i: 'tomato', x: 0, y: 0, w: 1, h: 2},
