@@ -3,8 +3,7 @@ import React from 'react';
 // import { newGarden } from './actions';
 
 export default function GardenBuilder( props ) {
-    const { newGarden } = props;
-    console.log('props', props);
+    const { newGarden, history } = props;
     return (
         <div>
             <form onSubmit={e => {
@@ -12,11 +11,12 @@ export default function GardenBuilder( props ) {
                 const {name, feetWidth, feetLength, inchWidth, inchLength} = e.target.elements;
                 const w = parseInt(feetWidth.value * 12) + parseInt(inchWidth.value); //eslint-disable-line
                 const l = parseInt(feetLength.value * 12) + parseInt(inchLength.value); //eslint-disable-line
+                const goToGarden = (id) => history.push(`/gardens/${id}`);
                 newGarden({
                     name: name.value,
                     width: w,
                     length: l
-                });
+                }, goToGarden);
             }}>
                 <h3>Make a new Garden</h3>
                 <label>Name:<input required name="name"/></label>

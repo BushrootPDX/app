@@ -1,6 +1,7 @@
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { newGarden } from '../garden/actions';
+import { withRouter } from 'react-router';
 
 import GardenBuilder from './GardenBuilder';
 
@@ -17,7 +18,7 @@ const mapDispatchToProps = (dispatch) => {
 const GardenBuilderContainer = connect(
     mapStateToProps,
     mapDispatchToProps
-)(GardenBuilder);
+)(withRouter(GardenBuilder));
 
 export default GardenBuilderContainer;
 
