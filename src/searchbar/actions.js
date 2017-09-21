@@ -10,6 +10,6 @@ export function queryChange(query='') {
 export function queryReset() {
     return {
         type: actions.QUERY_RESET,
-        payload: 'Search...'
+        payload: ''
     };
 }
