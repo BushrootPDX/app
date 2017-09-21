@@ -15,6 +15,10 @@ function mapDispatchToProps(dispatch) {
     return bindActionCreators({ onAddInstance, onRemoveInstance }, dispatch);
 }
 
+function mergeProps() {
+    
+}
+
 const BasicGridContainer = connect(
     mapStateToProps,
     mapDispatchToProps

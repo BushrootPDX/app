@@ -15,6 +15,7 @@ export default class BasicGrid extends Component {
 
         const { garden } = this.props;
         const { onAddInstance, onRemoveInstance } = this.props;
+        const { selectedPlant } = this.props;
         // Object.keys(garden.plot).map() = layout
         // layout is an array of objects, see the demo for more complete usage
         var layout = [

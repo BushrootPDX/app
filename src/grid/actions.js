@@ -11,10 +11,7 @@ export function onAddInstance(instance) {
 }
 
 //   onAddItem() {
-//     /*eslint no-console: 0*/
-//     console.log('adding', 'n' + this.state.newCounter);
 //     this.setState({
-//       // Add a new item. It must have a unique key!
 //       items: this.state.items.concat({
 //         i: 'n' + this.state.newCounter,
 //         x: this.state.items.length * 2 % (this.state.cols || 12),
