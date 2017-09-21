@@ -1,52 +1,52 @@
 import React, { Component } from 'react';
 import '../../node_modules/react-resizable/css/styles.css';
 import '../../node_modules/react-grid-layout/css/styles.css';
-import styled from 'styled-components';
 import ReactGridLayout from 'react-grid-layout';
 
 
-const StyledLayout = styled.section`
-margin: auto;
-`;
-
 export default class BasicGrid extends Component {
     
-    
     render() {
-
-        const { garden } = this.props;
+        const { garden, plot } = this.props;
         const { onAddInstance, onRemoveInstance } = this.props;
         const { selectedPlant } = this.props;
-        // Object.keys(garden.plot).map() = layout
+        
+        // Object.keys(plot).map() = layout
         // layout is an array of objects, see the demo for more complete usage
+
+        // NOTE: need a max lenth of webpage or the grid will have a infinite length
+        // onLayoutChange={'resubmit the garden'}
+        // onDragStop={'set new layout on plot'}
         var layout = [
-            {i: 'tomato', x: 0, y: 0, w: 1, h: 2, maxW: 1},
-            {i: 'carrot', x: 1, y: 0, w: 1, h: 2, maxW: 1},
-            {i: 'corn', x: 4, y: 0, w: 1, h: 2, maxW: 1}
+            {i: 'tomato', x: 0, y: 0, w: 1, h: 1},
+            {i: 'carrot', x: 2, y: 0, w: 1, h: 1},
+            {i: 'corn', x: 4, y: 0, w: 1, h: 1}
         ];
         return (
             
-            <StyledLayout>
-                {/* {garden.name} */}
-                <ReactGridLayout 
-                    className="layout" 
-                    layout={layout}
-                    useCSSTransforms={true}
-                    verticalCompact={false}
-                    cols={12}
-                    rowHeight={30}
-                    width={1200}
-                    style={{
-                        backgroundColor:'grey',
-                        display:'block',
-                        margin:'auto'
-                    }}
-                >
-                    <div style={{border:'solid 1px'}}key={'tomato'}>tomato</div>
-                    <div style={{border:'solid 1px'}}key={'carrot'}>carrot</div>
-                    <div style={{border:'solid 1px'}}key={'corn'}>corn</div>
-                </ReactGridLayout>    
-            </StyledLayout>
+            
+            <ReactGridLayout 
+                className="layout" 
+                isResizable={false}
+                layout={layout}
+                useCSSTransforms={true}
+                verticalCompact={false}
+                cols={6}
+                rowHeight={10}
+                width={garden.width}
+                style={
+                    {
+                        width:garden.width,
+                        height:garden.length
+                    }
+                }
+            >
+                <div style={{border:'solid 1px'}}key={'tomato'}>tomato</div>
+                <div style={{border:'solid 1px'}}key={'carrot'}>🌱</div>
+                <div style={{border:'solid 1px'}}key={'corn'}>corn</div>
+                    
+            </ReactGridLayout>    
+            
             
         );
     }

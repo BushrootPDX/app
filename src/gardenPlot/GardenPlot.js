@@ -1,15 +1,24 @@
 import React from 'react';
 import BasicGrid from '../grid/basicGrid';
+import styled from 'styled-components';
+
 
 
 export default function GardenPlot( props ) {
-
+    
     const { garden, plotClicked, selectedPlant } = props;
     const { _id, width, length, plot } = garden;
+    const StyledLayout = styled.section`
+    background-color:rgba(90, 43, 21, 0.96);
+    display:block;
+    margin:auto;
+    width:${garden.width};
+    height:${garden.length};
+    `;
 
 
     return (
-        <div >
+        <StyledLayout >
             <div
                 id={_id}
                 style={renderPlot(width, length)}
@@ -25,16 +34,16 @@ export default function GardenPlot( props ) {
                     const xVal = xPosition;
                     const yVal = yPosition;
                     const transform = `translate( ${ xVal }px, ${ yVal }px)`;
-
-                    return <img
+                    const newPlant = <img
                         id={instanceId}
                         src={img}
                         style={{transform}}
                         alt={type} />;
+                    return newPlant;
                 })}
-                <BasicGrid />
+                <BasicGrid garden={ garden } plot={ plot }/>
             </div>
-        </div>
+        </StyledLayout>
     );
 }
 

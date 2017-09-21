@@ -7,7 +7,8 @@ import BasicGrid from './basicGrid';
 
 function mapStateToProps(state) {
     return {
-        garden: state.garden
+        garden: state.garden,
+        plot: state.plot
     };
 }
 
