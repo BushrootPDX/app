@@ -5,27 +5,11 @@ const URL = '/gardens';
 
 export default {
     getAll() {
-        return request.get(URL) 
-            .then(
-                r => r.body,
-                ({ response }) => {
-                    const { body, text } = response;
-                    const error = body ? body.message || body.error || body : text;
-                    throw error;
-                }
-            );
+        return request.get(URL);
     },
 
     get(id) {
-        return request.get(`${URL}/${id}`)
-            .then(
-                r => r.body,
-                ({ response }) => {
-                    const { body, text } = response;
-                    const error = body ? body.message || body.error || body : text;
-                    throw error;
-                }
-            );
+        return request.get(`${URL}/${id}`);
     },
 
 
@@ -35,26 +19,10 @@ export default {
     },
 
     update(garden) {
-        return request.put(`${URL}/${garden._id}`, garden)
-            .then(
-                r => r.body,
-                ({ response }) => {
-                    const { body, text } = response;
-                    const error = body ? body.message || body.error || body : text;
-                    throw error;
-                }
-            );
+        return request.put(`${URL}/${garden._id}`, garden);
     },
 
     delete(garden) {
-        return request.delete(`${URL}/${garden._id}`)
-            .then(
-                r => r.body,
-                ({ response }) => {
-                    const { body, text } = response;
-                    const error = body ? body.message || body.error || body : text;
-                    throw error;       
-                }
-            );
+        return request.delete(`${URL}/${garden._id}`);
     }
 };

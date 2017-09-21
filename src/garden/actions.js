@@ -52,8 +52,7 @@ export function getGardenById(id) {
                     type: actions.FETCHED_GARDEN,
                     payload: garden
                 });
-            })
-            .catch(error => {
+            }, error => {
                 dispatch({
                     type: actions.FETCHED_GARDEN_ERROR,
                     payload: error

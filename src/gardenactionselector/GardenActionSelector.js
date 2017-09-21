@@ -7,8 +7,8 @@ export default class GardenActionSelector extends Component {
     
         return(
             <div>
-                <button onClick={() => saveGarden(garden)} >Save Garden</button>
-                <button onClick={() => deleteGarden(garden)} >Delete Garden</button>
+                <button type="button" onClick={() => saveGarden(garden)} >Save Garden</button>
+                <button type="button" onClick={() => deleteGarden(garden)} >Delete Garden</button>
             </div>
         );
     }

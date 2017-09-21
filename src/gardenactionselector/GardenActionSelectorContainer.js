@@ -3,9 +3,11 @@ import { saveGarden, deleteGarden } from './actions';
 import { bindActionCreators } from 'redux';
 import GardenActionSelector from './GardenActionSelector';
 
-const mapStateToProps = state => ({
-    garden: state.garden
-});
+function mapStateToProps(state) {
+    return {
+        garden: state.garden
+    };
+}
 
 function mapDispatchToProps (dispatch) {
     return bindActionCreators({ saveGarden, deleteGarden }, dispatch);

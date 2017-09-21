@@ -10,8 +10,8 @@ export default class Dashboard extends Component {
             <div>
                 <h3>Hello, Gard'ner!</h3>
                 <h5> Gardens: </h5>
-                { gardens && gardens.map( garden => {
-                    return <Link to={`gardens/${garden._id}`}>{garden.name}</Link>;
+                { gardens && gardens.map( (garden, index) => {
+                    return <Link key={index} to={`gardens/${garden._id}`}>{garden.name}</Link>;
                 })}
                 <Link to="/gardens">New Garden</Link>
             </div>
