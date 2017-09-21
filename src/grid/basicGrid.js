@@ -4,6 +4,7 @@ import '../../node_modules/react-grid-layout/css/styles.css';
 import styled from 'styled-components';
 import ReactGridLayout from 'react-grid-layout';
 
+
 const StyledLayout = styled.section`
 margin: auto;
 `;
@@ -19,9 +20,9 @@ export default class BasicGrid extends Component {
         // Object.keys(garden.plot).map() = layout
         // layout is an array of objects, see the demo for more complete usage
         var layout = [
-            {i: 'tomato', x: 0, y: 0, w: 1, h: 2},
-            {i: 'carrot', x: 1, y: 0, w: 3, h: 2, maxW: 4},
-            {i: 'corn', x: 4, y: 0, w: 1, h: 2}
+            {i: 'tomato', x: 0, y: 0, w: 1, h: 2, maxW: 1},
+            {i: 'carrot', x: 1, y: 0, w: 1, h: 2, maxW: 1},
+            {i: 'corn', x: 4, y: 0, w: 1, h: 2, maxW: 1}
         ];
         return (
             
