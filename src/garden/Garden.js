@@ -18,9 +18,9 @@ export default class Garden extends Component {
         
         return (
             <div>
-                {this.props.match.params && <div><GardenBuilder newGarden={this.props.newGarden} /></div>}
+                {!this.props.match.params.id && <div><GardenBuilder newGarden={this.props.newGarden} /></div>}
                 {error && error.map(err => <pre>{err}</pre>)}
-                {!this.props.match.params && (
+                {this.props.match.params.id && (
                     <div>
                         <h2>{garden.name}</h2>
                         <PlantSearch />
