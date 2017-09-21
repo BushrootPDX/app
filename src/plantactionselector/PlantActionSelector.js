@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import styled from 'styled-components';
 
 export default class PlantActionSelector extends Component {
 
@@ -8,8 +9,14 @@ export default class PlantActionSelector extends Component {
     render() {
         const { addAction, removeAction } = this.props;
 
+        const PlantActionDiv = styled.div`
+            border-style: solid;
+            border-width: 2px;
+            border-color: red;
+        `;
+
         return (
-            <div>
+            <PlantActionDiv>
                 <button
                     type="submit"
                     onClick={event => {
@@ -24,7 +31,7 @@ export default class PlantActionSelector extends Component {
                         removeAction();
                     }}
                 >Remove</button>
-            </div>
+            </PlantActionDiv>
         );
     }
 }

@@ -23,8 +23,8 @@ export default class Garden extends Component {
                 {this.props.match.params.id && (
                     <div>
                         <h2>{garden.name}</h2>
-                        <PlantSearch />
                         <PlantActionSelectContainer {...this.props} />
+                        <PlantSearch />
                         <GardenPlot { ...this.props } />
                         <GardenActionSelectorContainer/>
                     </div>
