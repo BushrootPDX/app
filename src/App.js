@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import BasicGrid from './grid/basicGrid';
-import GardenContainer from './garden/GardenContainer';
+import DashboardContainer from './dashboard/DashboardContainer';
 import './App.css';
 
 class App extends Component {
@@ -10,7 +10,7 @@ class App extends Component {
             <div className="App">
                 Hello!
                 <BasicGrid />
-                <GardenContainer location={{params: {id: '59c1c13a4957d3652b65e5ee'}}}/>
+                <DashboardContainer/>
             </div>
         );
     }

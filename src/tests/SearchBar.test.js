@@ -4,7 +4,6 @@ import toJSON from 'enzyme-to-json';
 import SearchBar from '../searchbar/SearchBar';
 
 const searchFunction = function(value) {
-    console.log('something something', value);
 };
 
 describe('SearchBar component', () => {

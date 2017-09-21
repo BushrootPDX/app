@@ -2,7 +2,7 @@ import React from 'react';
 
 export default function GardenBuilder( props ) {
     const { newGarden } = props;
-
+    
     return (
         <div>
             <form onSubmit={e => {

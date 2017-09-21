@@ -4,25 +4,31 @@ import GardenPlot from '../gardenPlot/GardenPlot';
 import PlantSearch from '../plantsearch/PlantSearch';
 import GardenBuilder from '../gardenBuilder/GardenBuilder';
 import PlantActionSelectContainer from '../plantactionselector/PlantActionSelectContainer';
-import GardenActionSelectorContainer from '../gardenactionselector/GardenActionSelector';
+import GardenActionSelectorContainer from '../gardenactionselector/GardenActionSelectorContainer';
 
 export default class Garden extends Component {
     componentDidMount() {
-        this.props.getGardenById(this.props.location.params.id);
+        const {id} = this.props.match.params;
+        if(id) this.props.getGardenById(id);
     }
     render() {
         const { loading, garden, error } = this.props;
-
+        // const {id} = this.props.match.params;
         if (loading) return <div>Loading...</div>;
+        
         return (
             <div>
-                <GardenBuilder {...this.props} />
-                <h2>{garden.name}</h2>
+                {!this.props.match.params.id && <div><GardenBuilder newGarden={this.props.newGarden} /></div>}
                 {error && error.map(err => <pre>{err}</pre>)}
-                <PlantSearch />
-                <PlantActionSelectContainer {...this.props} />
-                <GardenPlot { ...this.props } />
-                <GardenActionSelectorContainer {...this.props} />
+                {this.props.match.params.id && (
+                    <div>
+                        <h2>{garden.name}</h2>
+                        <PlantSearch />
+                        <PlantActionSelectContainer {...this.props} />
+                        <GardenPlot { ...this.props } />
+                        <GardenActionSelectorContainer/>
+                    </div>
+                )}
             </div>
         );
     }

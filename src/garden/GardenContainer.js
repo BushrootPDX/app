@@ -1,12 +1,12 @@
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { withRouter } from 'react-router';
 import { getGardenById, plotClicked, newGarden } from './actions';
 
 import Garden from './Garden';
 
 function mapStateToProps(state) {
     return {
+        user: state.auth.user,
         selectedPlant: state.selectedPlant,
         garden: state.garden,
         error: state.error,

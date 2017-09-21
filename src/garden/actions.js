@@ -2,6 +2,7 @@
 import * as actions from './constants';
 import gardensApi from '../services/gardensApi';
 import shortid from 'shortid';
+import _ from 'lodash';
 
 export function addPlantInstance(id) {
 
@@ -22,13 +23,16 @@ export function newGarden(garden) {
         });
 
         gardensApi.add(garden)
-            .then(saved => {
+            .then(({savedGarden, slimUser}) => {
                 dispatch({
                     type: actions.ADDED_GARDEN,
-                    payload: saved
+                    payload: savedGarden
                 });
-            })
-            .catch(error => {
+                dispatch({
+                    type: 'FETCHED_USER',
+                    payload: slimUser
+                });
+            }, error => {
                 dispatch({
                     type: actions.ADD_GARDEN_ERROR,
                     payload: error
@@ -49,8 +53,7 @@ export function getGardenById(id) {
                     type: actions.FETCHED_GARDEN,
                     payload: garden
                 });
-            })
-            .catch(error => {
+            }, error => {
                 dispatch({
                     type: actions.FETCHED_GARDEN_ERROR,
                     payload: error
@@ -61,45 +64,71 @@ export function getGardenById(id) {
 
 export function plotClicked( garden, plantId, xPosition, yPosition) {
     return (dispatch, getState) => { 
+<<<<<<< HEAD
         const { activeAction: verb } = getState();
         if(verb === 'ADD') {
+=======
+        const { activeAction } = getState();
+        if(activeAction === 'ADD') {
+            
+>>>>>>> 51a0bf3036cbc9cc1042f3964f7b54544a737e53
             dispatch({
                 type: actions.ADDING_PLANT });
             
-            const newGarden = Object.create(garden);
+            const newGarden = _.cloneDeep(garden);
             const instanceId = shortid.generate();
+            newGarden.plot = {};
             newGarden.plot[instanceId] = {
                 instanceId,
                 plantId,
                 xPosition,
                 yPosition
             };
+            console.log('newGarden before going to API is ', newGarden);
             gardensApi.update(newGarden)
-                .then(newGarden => {
+                .then(({savedGarden, slimUser}) => {
+                    console.log('savedGarden coming back from API is ', savedGarden);
+                    console.log('slimUser coming back from API is ', slimUser);
                     dispatch({
                         type: actions.ADDED_PLANT,
-                        payload: newGarden
+                        payload: savedGarden
+                    });
+                    dispatch({
+                        type: 'FETCHED_USER',
+                        payload: slimUser
                     });
                 })
                 .catch(error => {
+                    console.log('error from savedPlant is ', error);
                     dispatch({
                         type: actions.ADD_PLANT_ERROR,
                         payload: error
                     });
                 });
         }
+<<<<<<< HEAD
         if(verb === 'REMOVE') {
             dispatch({
                 type: actions.REMOVING_PLANT });
     
+=======
+        if(activeAction === 'REMOVE') {
+            dispatch({ 
+                type: actions.REMOVING_PLANT });
+
+>>>>>>> 51a0bf3036cbc9cc1042f3964f7b54544a737e53
             const newGarden = Object.create(garden);
             newGarden.plot[plantId] = null;
                 
             gardensApi.update(newGarden)
-                .then(newGarden => {
+                .then(({savedGarden, slimUser}) => {
                     dispatch({
-                        type: actions.REMOVED_PLANT,
-                        payload: newGarden
+                        type: actions.ADDED_PLANT,
+                        payload: savedGarden
+                    });
+                    dispatch({
+                        type: 'FETCHED_USER',
+                        payload: slimUser
                     });
                 })
                 .catch(error => {
@@ -108,7 +137,13 @@ export function plotClicked( garden, plantId, xPosition, yPosition) {
                         payload: error
                     });
                 });
+<<<<<<< HEAD
 
         }
     };
 }
+=======
+        }
+    };
+}
+>>>>>>> 51a0bf3036cbc9cc1042f3964f7b54544a737e53
