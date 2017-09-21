@@ -61,55 +61,60 @@ export function getGardenById(id) {
     };
 }
 
-export function plotClicked(verb, garden, plantId, xPosition, yPosition) {
-    if(verb === 'ADD') {
-        return dispatch => {
-            dispatch({
-                type: actions.ADDING_PLANT });
+export function plotClicked( garden, plantId, xPosition, yPosition) {
+    console.log('I was clicked!');
+    return (dispatch, getState) => { 
+        const { activeAction } = getState();
+        if(activeAction === 'ADD') {
+            return dispatch => {
+                dispatch({
+                    type: actions.ADDING_PLANT });
             
-            const newGarden = Object.create(garden);
-            const instanceId = shortid.generate();
-            newGarden.plot[instanceId] = {
-                instanceId,
-                plantId,
-                xPosition,
-                yPosition
+                const newGarden = Object.create(garden);
+                const instanceId = shortid.generate();
+                newGarden.plot[instanceId] = {
+                    instanceId,
+                    plantId,
+                    xPosition,
+                    yPosition
+                };
+                gardensApi.update(newGarden)
+                    .then(newGarden => {
+                        dispatch({
+                            type: actions.ADDED_PLANT,
+                            payload: newGarden
+                        });
+                    })
+                    .catch(error => {
+                        dispatch({
+                            type: actions.ADD_PLANT_ERROR,
+                            payload: error
+                        });
+                    });
             };
-            gardensApi.update(newGarden)
-                .then(newGarden => {
-                    dispatch({
-                        type: actions.ADDED_PLANT,
-                        payload: newGarden
-                    });
-                })
-                .catch(error => {
-                    dispatch({
-                        type: actions.ADD_PLANT_ERROR,
-                        payload: error
-                    });
-                });
-        };
-    }
-    if(verb === 'REMOVE') {
-        return dispatch => {
-            dispatch({ type: actions.REMOVING_PLANT });
+        }
+        if(verb === 'REMOVE') {
+            return dispatch => {
+                dispatch({ 
+                    type: actions.REMOVING_PLANT });
 
-            const newGarden = Object.create(garden);
-            newGarden.plot[plantId] = null;
+                const newGarden = Object.create(garden);
+                newGarden.plot[plantId] = null;
             
-            gardensApi.update(newGarden)
-                .then(newGarden => {
-                    dispatch({
-                        type: actions.REMOVED_PLANT,
-                        payload: newGarden
+                gardensApi.update(newGarden)
+                    .then(newGarden => {
+                        dispatch({
+                            type: actions.REMOVED_PLANT,
+                            payload: newGarden
+                        });
+                    })
+                    .catch(error => {
+                        dispatch({
+                            type: actions.REMOVE_PLANT_ERROR,
+                            payload: error
+                        });
                     });
-                })
-                .catch(error => {
-                    dispatch({
-                        type: actions.REMOVE_PLANT_ERROR,
-                        payload: error
-                    });
-                });
-        };
-    }
+            };
+        }
+    };
 }
