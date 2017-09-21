@@ -2,6 +2,7 @@ import { connect } from 'react-redux';
 import { saveGarden, deleteGarden } from './actions';
 import { bindActionCreators } from 'redux';
 import GardenActionSelector from './GardenActionSelector';
+import { withRouter } from 'react-router';
 
 function mapStateToProps(state) {
     return {
@@ -16,6 +17,6 @@ function mapDispatchToProps (dispatch) {
 const GardenActionSelectorContainer = connect(
     mapStateToProps,
     mapDispatchToProps
-)(GardenActionSelector);
+)(withRouter(GardenActionSelector));
 
 export default GardenActionSelectorContainer;

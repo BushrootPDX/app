@@ -26,7 +26,6 @@ export const TopBar = () => (
             <Route exact path="/" component={Home}/>
             <PrivateRoute path="/gardens/:id" component={GardenContainer}/>
             <PrivateRoute path="/gardens" component={GardenBuilderContainer}/>
-            
             <Redirect to="/"/>
         </Switch>
     </div>
