@@ -70,27 +70,19 @@ export function plotClicked( garden, plantId, xPosition, yPosition) {
             dispatch({
                 type: actions.ADDING_PLANT });
             
-            const newGarden = _.cloneDeep(garden);
-            const instanceId = shortid.generate();
-            newGarden.plot = {};
-            newGarden.plot[instanceId] = {
-                instanceId,
+            const newGardenPlot = _.cloneDeep(garden.plot) || [];
+            newGardenPlot.push({
                 plantId,
                 xPosition,
                 yPosition
-            };
-            console.log('newGarden before going to API is ', newGarden);
-            gardensApi.update(newGarden)
-                .then(({savedGarden, slimUser}) => {
-                    console.log('savedGarden coming back from API is ', savedGarden);
-                    console.log('slimUser coming back from API is ', slimUser);
+            });
+            console.log('newGarden before going to API is ', newGardenPlot);
+            gardensApi.updatePlot(garden._id, newGardenPlot)
+                .then( newGarden => {
+                    console.log('savedGarden coming back from API is ', newGarden);
                     dispatch({
                         type: actions.ADDED_PLANT,
-                        payload: savedGarden
-                    });
-                    dispatch({
-                        type: 'FETCHED_USER',
-                        payload: slimUser
+                        payload: newGarden
                     });
                 })
                 .catch(error => {

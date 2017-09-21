@@ -18,8 +18,8 @@ export default {
         return request.post(URL, garden);
     },
 
-    update(garden) {
-        return request.put(`${URL}/${garden._id}`, garden);
+    updatePlot(id, plot) {
+        return request.put(`${URL}/${id}/plot`, plot);
     },
 
     delete(garden) {
