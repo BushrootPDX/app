@@ -62,7 +62,7 @@ export function getGardenById(id) {
     };
 }
 
-export function plotClicked( garden, plantId, xPosition, yPosition) {
+export function plotClicked( garden, plantId, x = 0, y) {
     return (dispatch, getState) => { 
         const { activeAction } = getState();
         if(activeAction === 'ADD') {
@@ -73,8 +73,8 @@ export function plotClicked( garden, plantId, xPosition, yPosition) {
             const newGardenPlot = _.cloneDeep(garden.plot) || [];
             newGardenPlot.push({
                 plantId,
-                xPosition,
-                yPosition
+                x,
+                y
             });
             console.log('newGarden before going to API is ', newGardenPlot);
             gardensApi.updatePlot(garden._id, newGardenPlot)

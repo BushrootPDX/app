@@ -8,8 +8,14 @@ export default class BasicGrid extends Component {
     
     render() {
         const { garden, plot } = this.props;
-        const { onAddInstance, onRemoveInstance } = this.props;
+        const { plotClicked, onAddInstance, onRemoveInstance } = this.props;
         const { selectedPlant } = this.props;
+        console.log(plot);
+
+        // plot.map((plant) => {
+        //     const layout = {}
+        //     return 
+        // })
         
         // Object.keys(plot).map() = layout
         // layout is an array of objects, see the demo for more complete usage
@@ -27,8 +33,9 @@ export default class BasicGrid extends Component {
             
             <ReactGridLayout 
                 className="layout" 
+                autoSize={false}
                 isResizable={false}
-                layout={layout}
+                layout={plot}
                 useCSSTransforms={true}
                 verticalCompact={false}
                 cols={6}
@@ -37,14 +44,28 @@ export default class BasicGrid extends Component {
                 style={
                     {
                         width:garden.width,
-                        height:garden.length
+                        height:garden.length,
+                        float:'center'
                     }
                 }
-            >
-                <div style={{border:'solid 1px'}}key={'tomato'}>tomato</div>
-                <div style={{border:'solid 1px'}}key={'carrot'}>🌱</div>
-                <div style={{border:'solid 1px'}}key={'corn'}>corn</div>
-                    
+            >    
+                {
+                    garden.plot &&  garden.plot.map(plant => {
+                        const { name, spread, id } = plant;
+                        const styled = (spread) => ({
+                            width: spread,
+                            height: spread,
+                            borderStyle: 'solid',
+                            borderColor: '#000',
+                            borderWidth: 'solid'
+
+
+                        });
+                        return (
+                            <div key={id} id={id} style={styled(spread)}>{name}</div>
+                        );
+                    })
+                }         
             </ReactGridLayout>    
             
             

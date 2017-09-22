@@ -11,9 +11,11 @@ export default function GardenPlot( props ) {
     const StyledLayout = styled.section`
     background-color:rgba(90, 43, 21, 0.96);
     display:block;
-    margin:auto;
+    margin-left: 25%;
     width:${garden.width};
     height:${garden.length};
+    border-style: solid;
+    border-color: green;
     `;
 
     const PlotDiv = styled.div`
@@ -27,7 +29,7 @@ export default function GardenPlot( props ) {
 
     return (
         
-        <PlotDiv>
+        <StyledLayout>
             <div
                 id={_id}
                 style={renderPlot(width, length)}
@@ -38,22 +40,23 @@ export default function GardenPlot( props ) {
                     plotClicked( garden, _id, event.target.id, x, y);
                 }}>
                 {plot && Object.keys(plot).map(key => {
-                    const {instanceId, img, xPosition, yPosition, type} = plot[key];
+                    const {instanceId, img, x, y, type} = plot[key];
 
-                    const xVal = xPosition;
-                    const yVal = yPosition;
+                    const xVal = x;
+                    const yVal = y;
                     const transform = `translate( ${ xVal }px, ${ yVal }px)`;
-                    const newPlant = <img
-                        id={instanceId}
-                        src={img}
-                        style={{transform}}
-                        alt={type} />;
+                    const newPlant = <div>
+                        <img
+                            id={instanceId}
+                            src={img}
+                            style={{transform}}
+                            alt={type} />
+                    </div>;
                     return newPlant;
                 })}
                 <BasicGrid garden={ garden } plot={ plot }/>
             </div>
-        
-        </PlotDiv>
+        </StyledLayout>
     );
 }
 
