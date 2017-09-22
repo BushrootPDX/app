@@ -9,7 +9,7 @@ export function addPlantInstance(id) {
     return dispatch => {
         dispatch({ type: actions.ADDING_PLANT });
 
-        dispatch({ 
+        dispatch({
             type: actions.ADDED_PLANT,
             payload: id
         });
@@ -99,7 +99,7 @@ export function plotClicked( garden, plantId, xPosition, yPosition) {
 
             const newGarden = Object.create(garden);
             newGarden.plot[plantId] = null;
-            
+
             gardensApi.update(newGarden)
                 .then(({savedGarden, slimUser}) => {
                     dispatch({
