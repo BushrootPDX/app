@@ -3,9 +3,7 @@ import styled from 'styled-components';
 
 export default class PlantActionSelector extends Component {
 
-    componentWillUnmount() {
-        this.props.actionReset();
-    }
+    
     render() {
         const { addAction, removeAction } = this.props;
 
