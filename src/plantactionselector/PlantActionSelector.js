@@ -3,9 +3,7 @@ import styled from 'styled-components';
 
 export default class PlantActionSelector extends Component {
 
-    componentWillUnmount() {
-        this.props.actionReset();
-    }
+    
     render() {
         const { addAction, removeAction } = this.props;
 
@@ -13,6 +11,9 @@ export default class PlantActionSelector extends Component {
             border-style: solid;
             border-width: 2px;
             border-color: red;
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-end;
         `;
 
         return (

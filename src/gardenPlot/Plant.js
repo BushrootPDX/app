@@ -23,8 +23,16 @@ const plantSource = {
 
         const item = monitor.getItem();
         console.log(monitor.getDropResult());
-    }
+    },
+
 };
+
+function collect(connect, monitor) {
+    return {
+        connectDragSource: connect.dragSource(),
+        isDragging: monitor.isDragging()
+    };
+}
 
 export class Plant extends Component {
     
@@ -44,7 +52,4 @@ export class Plant extends Component {
     }
 }
 
-export default DragSource(PLANT, plantSource, (connect, monitor) =>({
-    connectDragSource: connect.dragSource(),
-    isDragging: monitor.isDragging()
-}))(Plant);
+export default DragSource(PLANT, plantSource, collect)(Plant);

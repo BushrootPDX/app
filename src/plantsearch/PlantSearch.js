@@ -14,21 +14,43 @@ export class PlantSearch extends Component {
         const { selectedPlant, plants, selectPlant, recentlyViewed } = this.props;
 
         const SearchDiv = styled.div`
-            width: 25%;
             border-style: solid;
             border-width: 2px;
+            * {
+                max-width: 80%;
+            }
             img {
-                width: 50%;
+                width: 60%;
                 display: block;
                 margin: auto;
             };
-            h3, h4 {
+            h3, h4, h5 {
                 text-align: center;
+                display: block;
             };
             form {
                 display: block;
                 margin: auto;
-                width: 90%;
+                width: 25vw;
+            };
+            p {
+                display: block;
+                height: 20vw;
+                width: 25vw;
+                margin: auto;
+                overflow: scroll;
+
+            };
+            ul {
+                display: block;
+                height: 10vw;
+                border: 1px solid black;
+                margin: auto;
+                width: 25vw;
+                overflow: scroll;
+            };
+            li {
+                display: block;
             };
         `;
 
