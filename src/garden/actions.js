@@ -97,7 +97,7 @@ export function plotClicked( garden, plantId, x, y) {
             const newGarden = Object.create(garden);
             newGarden.plot[plantId] = null;
 
-            gardensApi.update(newGarden)
+            gardensApi.updatePlot(newGarden)
                 .then(({savedGarden, slimUser}) => {
                     dispatch({
                         type: actions.ADDED_PLANT,
