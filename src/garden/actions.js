@@ -65,12 +65,12 @@ export function getGardenById(id) {
 export function plotClicked( garden, plantId, x, y) {
     return (dispatch, getState) => { 
         const { activeAction } = getState();
+        const newGardenPlot = _.cloneDeep(garden.plot) || [];
         if(activeAction === 'ADD') {
             
             dispatch({
                 type: actions.ADDING_PLANT });
             
-            const newGardenPlot = _.cloneDeep(garden.plot) || [];
             newGardenPlot.push({
                 plantId,
                 x,
@@ -94,18 +94,15 @@ export function plotClicked( garden, plantId, x, y) {
             dispatch({ 
                 type: actions.REMOVING_PLANT });
 
-            const newGarden = Object.create(garden);
-            newGarden.plot[plantId] = null;
+            const moverIndex = newGardenPlot.findIndex((plant) => plant._id === plantId);
+                
+            newGardenPlot.splice(moverIndex, 1);
 
-            gardensApi.updatePlot(newGarden)
-                .then(({savedGarden, slimUser}) => {
+            gardensApi.updatePlot(garden._id, newGardenPlot)
+                .then( newGarden => {
                     dispatch({
-                        type: actions.ADDED_PLANT,
-                        payload: savedGarden
-                    });
-                    dispatch({
-                        type: 'FETCHED_USER',
-                        payload: slimUser
+                        type: actions.REMOVED_PLANT,
+                        payload: newGarden
                     });
                 })
                 .catch(error => {
