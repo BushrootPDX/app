@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {BrowserRouter as Router, Route, Link, Switch, Redirect} from 'react-router-dom';
+import {BrowserRouter as Router, Route, NavLink, Switch, Redirect} from 'react-router-dom';
 import Auth from './auth/Auth';
 import GardenContainer from './garden/GardenContainer';
 import GardenBuilderContainer from './gardenBuilder/GardenBuilderContainer';
@@ -27,8 +27,23 @@ class TopBar extends Component {
             <Router >
                 <div className="TopBar">
                     <ul>
-                        <Link to="/">Home</Link>
-                        <Link to="/dashboard">Dashboard</Link>
+                        <NavLink
+                            style={{
+                                paddingRight:'10px'
+                            }}
+                            activeStyle={{
+                                fontWeight: 'bold',
+                                color: 'pink',
+                                border: '1px solid gray',
+                            }}
+                            exact to="/">Home</NavLink>
+                        <NavLink 
+                            activeStyle={{
+                                fontWeight: 'bold',
+                                color: 'pink',
+                                border: '1px solid gray',
+                            }}
+                            to="/dashboard">Dashboard</NavLink>
                     </ul>
                     <hr/>
                     <Switch>
