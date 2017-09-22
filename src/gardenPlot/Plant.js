@@ -3,16 +3,24 @@ import { DragSource } from 'react-dnd';
 import { PLANT } from '../garden/constants';
 
 
-const style = (spread, x, y) => ({
-    width: `${spread}px`,
-    height: `${spread}px`,
-    position: 'absolute',
-    border: '1px dashed gray',
-    backgroundColor: 'steelBlue',
-    padding:'0.5rem 1rem',
-    curser: 'move',
-    transform: `translate(${x}px, ${y}px)`
-});
+const style = (spread, x, y) => {
+    const renderSize = parseInt(spread * 5, 10);
+    return ({
+        boxSizing: 'border-box',
+        width: `${renderSize}px`,
+        height: `${renderSize}px`,
+        position: 'absolute',
+        border: '1px dashed gray',
+        backgroundColor: 'steelBlue',
+        padding:'0.5rem 1rem',
+        curser: 'move',
+        transform: `translate(${x}px, ${y}px)`,
+        borderRadius: `${renderSize}px`,
+        overflow: 'hidden',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center'
+    });};
 
 const plantSource = {
     beginDrag(props) {
@@ -42,15 +50,20 @@ export class Plant extends Component {
         const { x, y, _id, plantId } = this.props.props;
         const { name, spread, img } = plantId;
         if(isDragging && hideSourceOnDrag) return null;
+        const shortName = name => {
+            const letters = name.split('');
+            return letters[0]+letters[1]+letters[2];
+        };
         
         return connectDragSource(
-            <img
+            <div
                 name={_id}
-                alt={name}
                 id={_id}
                 src={img}
                 style={{...style(spread, x, y)}}
-            />
+            >
+                {shortName(name)}
+            </div>
 
         );
     }

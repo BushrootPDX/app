@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {BrowserRouter as Router, Route, Link, Switch, Redirect} from 'react-router-dom';
+import {BrowserRouter as Router, Route, NavLink, Switch, Redirect} from 'react-router-dom';
 import Auth from './auth/Auth';
 import GardenContainer from './garden/GardenContainer';
 import GardenBuilderContainer from './gardenBuilder/GardenBuilderContainer';
@@ -12,7 +12,11 @@ import { DragDropContext } from 'react-dnd';
 
 const Home = () => (
     <div>
-        <h2>Home</h2>
+        <h2
+            style={{
+                paddingRight:'10px',
+                color: '#B8C733'
+            }}>Welcome Bush Root!</h2>
     </div>
 );
 
@@ -24,11 +28,31 @@ class TopBar extends Component {
 
     render() {
         return (
-            <Router >
-                <div className="TopBar">
-                    <ul>
-                        <Link to="/">Home</Link>
-                        <Link to="/dashboard">Dashboard</Link>
+            <Router style={{backgroundColor:'#525038', margin:'0px'}}>
+                <div className="TopBar" >
+                    <ul style={{backgroundColor:'#525038', margin:'0', padding:'20px'}}>
+                        <NavLink
+                            style={{
+                                paddingRight:'10px',
+                                color: '#C8C2B7'
+                            }}
+                            activeStyle={{
+                                fontWeight: 'bold',
+                                color: '#9AAC39',
+                                border: '1px solid gray',
+                            }}
+                            exact to="/">Home</NavLink>
+                        <NavLink 
+                            style={{
+                                paddingRight:'10px',
+                                color: '#C8C2B7'
+                            }}
+                            activeStyle={{
+                                fontWeight: 'bold',
+                                color: '#9AAC39',
+                                border: '1px solid gray',
+                            }}
+                            to="/dashboard">Dashboard</NavLink>
                     </ul>
                     <hr/>
                     <Switch>

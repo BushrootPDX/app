@@ -8,31 +8,38 @@ export default class PlantActionSelector extends Component {
         const { addAction, removeAction } = this.props;
 
         const PlantActionDiv = styled.div`
-            border-style: solid;
-            border-width: 2px;
-            border-color: red;
             display: flex;
             flex-direction: row;
-            justify-content: flex-end;
+            justify-content: center;
+            align-items: center;
+           `;
+
+        const Paragraph = styled.div`
+        display: block;
+        margin: auto;
+        text-align: center;
         `;
 
         return (
-            <PlantActionDiv>
-                <button
-                    type="submit"
-                    onClick={event => {
-                        event.preventDefault();
-                        addAction();
-                    }}
-                >Add</button>
-                <button
-                    type="submit"
-                    onClick={event => {
-                        event.preventDefault();
-                        removeAction();
-                    }}
-                >Remove</button>
-            </PlantActionDiv>
+            <div>
+                <Paragraph>{this.props.activeAction} MODE</Paragraph>
+                <PlantActionDiv>
+                    <button
+                        type="submit"
+                        onClick={event => {
+                            event.preventDefault();
+                            addAction();
+                        }}
+                    >Add</button>
+                    <button
+                        type="submit"
+                        onClick={event => {
+                            event.preventDefault();
+                            removeAction();
+                        }}
+                    >Remove</button>
+                </PlantActionDiv>
+            </div>
         );
     }
 }
