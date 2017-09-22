@@ -19,9 +19,5 @@ export const SAVE_GARDEN_ERROR = 'SAVE_GARDEN_ERROR';
 export const DELETING_GARDEN = 'DELETING_GARDEN';
 export const DELETED_GARDEN = 'DELETED_GARDEN';
 export const DELETE_GARDEN_ERROR = 'DELETE_GARDEN_ERROR';
-<<<<<<< HEAD
 
-export const Types = { PLANT: 'plant' };
-=======
 export const PLANT = 'PLANT';
->>>>>>> 1d1052aa769aebf5f99f6e5921dfd3efce947ff0

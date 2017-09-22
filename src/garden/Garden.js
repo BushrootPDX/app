@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { GardenPlot } from '../gardenPlot/GardenPlot';
+import GardenPlot from '../gardenPlot/GardenPlot';
 import PlantSearch from '../plantsearch/PlantSearch';
 import GardenBuilderContainer from '../gardenBuilder/GardenBuilderContainer';
 import PlantActionSelectContainer from '../plantactionselector/PlantActionSelectContainer';
@@ -47,7 +47,7 @@ export default class Garden extends Component {
                         </SearchPanel>
                         <GardenDiv>
                             <PlantActionSelectContainer {...this.props} />
-                            <GardenPlot { ...this.props } />
+                            <GardenPlot />
                             <GardenActionSelectorContainer/>
                         </GardenDiv>
                     </div>
