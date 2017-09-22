@@ -60,8 +60,8 @@ class GardenPlot extends Component {
                         onClick={event => {
                             const x = event.nativeEvent.offsetX;
                             const y = event.nativeEvent.offsetY;
-                            if (event.target.id === _id) return plotClicked(garden, selectedPlant._id, x, y);
-                            plotClicked(garden, event.target.id, x, y);
+                            if (event.target.id === garden._id) return plotClicked(garden, selectedPlant._id, x, y);
+                            if( event.target.id === selectedPlant._id )plotClicked(garden, event.target.id, x, y);
                         }}>
                         {plot && plot.map((plant, index) => {
                             return <DragSource key={index} props={plant} />;

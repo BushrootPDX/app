@@ -13,7 +13,8 @@ const Error = styled.pre`
     color: red;
 `;
 
-function Auth({ user, signin, signup, error, location }) {
+function Auth(props) {
+    const { user, signin, signup, error, location } = props;
     const redirect = location.state ? location.state.from : '/';
 
     if (user) return <Redirect to={redirect}/>;
@@ -26,7 +27,7 @@ function Auth({ user, signin, signup, error, location }) {
                         <p>
                             Not yet registered? <Link to="/auth/signup">Sign up!</Link>
                         </p>
-                        <Credentials submit={signin}/>
+                        <Credentials submit={signin} {...props}/>
                     </div>
                 )}/>
                 <Route path="/auth/signup" render={() => (
@@ -34,7 +35,7 @@ function Auth({ user, signin, signup, error, location }) {
                         <p>
                             Already have an account? <Link to="/auth/signin">Sign in!</Link>
                         </p>
-                        <Credentials submit={signup} allowName={true}/>
+                        <Credentials submit={signup} {...props} allowName={true}/>
                     </div>
                 )}/>
             </Switch>

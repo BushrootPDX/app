@@ -11,7 +11,7 @@ const Form = styled.form`
     }
 `;
 
-export default ({ submit}) => (
+export default ({ submit, history, location}) => (
     <Form onSubmit={e => {
         e.preventDefault();
         const { elements } = e.target;
@@ -20,6 +20,7 @@ export default ({ submit}) => (
             return obj;
         }, {});
         submit(data);
+        if(location.pathname === '/auth/signup') history.push('/gardens');
     }}>
         <label>email: <input name="email"/></label>
         <label>password: <input type="password" name="password"/></label>
