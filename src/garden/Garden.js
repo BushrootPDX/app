@@ -18,7 +18,7 @@ export default class Garden extends Component {
         const GardenDiv = styled.div`
             display: inline-block;
             margin: auto;
-            width: 65vw;
+            // width: 65vw;
         `;
 
         const SearchPanel = styled.div`

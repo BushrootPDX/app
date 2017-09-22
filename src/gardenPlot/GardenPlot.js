@@ -8,8 +8,6 @@ export default function GardenPlot( props ) {
 
     const PlotDiv = styled.div`
         display: inline-block;
-        float: right;
-        margin-left: 25%;
         border-style: solid;
         border-width: 2px;
         border-color: green;
