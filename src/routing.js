@@ -28,9 +28,9 @@ class TopBar extends Component {
 
     render() {
         return (
-            <Router >
-                <div className="TopBar">
-                    <ul>
+            <Router style={{backgroundColor:'#525038', margin:'0px'}}>
+                <div className="TopBar" >
+                    <ul style={{backgroundColor:'#525038', margin:'0', padding:'20px'}}>
                         <NavLink
                             style={{
                                 paddingRight:'10px',
