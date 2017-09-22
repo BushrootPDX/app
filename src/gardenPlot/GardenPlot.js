@@ -12,7 +12,6 @@ import { bindActionCreators } from 'redux';
 
 const plantTarget = {
     drop(props, monitor) {
-        console.log('drop method');
         const item = monitor.getItem();
         const id = item.id;
         const delta = monitor.getDifferenceFromInitialOffset();
@@ -40,14 +39,9 @@ class GardenPlot extends Component {
         display: inline-block;
         border-style: solid;
         border-width: 2px;
-<<<<<<< HEAD
-        border-color: #525038;
-=======
-        border-color: green;
+        border-color: #525038; 
         borderRadius: 10px;
         overflow: hidden
-        
->>>>>>> e61352f0c6a151ab2547e4af0c78d339b968f2e9
     `;
         function renderSize(num) {
             return parseInt(num * 5, 10);
@@ -66,7 +60,6 @@ class GardenPlot extends Component {
                         id={_id}
                         style={styles}
                         onClick={event => {
-                            console.log(event.target.id);
                             const x = event.nativeEvent.offsetX;
                             const y = event.nativeEvent.offsetY;
                             if (event.target.id !== garden._id) {

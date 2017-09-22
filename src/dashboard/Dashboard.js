@@ -9,6 +9,17 @@ export default class Dashboard extends Component {
         const { gardens } = this.props.user;
         return (
             <div>
+                <NavLink 
+                    style={{
+                        fontWeight: 'bold',
+                        color: '#C8C2B7',
+                        border: '1px dashed gray',
+                    }}
+                    to="/gardens">
+                    <button>
+                    Add New Garden
+                    </button>
+                </NavLink>
                 <h3 style={{color: '#B8C733'}}>Your Gardens:</h3>
 
                 { gardens && gardens.map( (garden, index) => {
@@ -23,13 +34,7 @@ export default class Dashboard extends Component {
                         {garden.name}<br style={{padding: '10px'}}/>
                     </NavLink>;
                 })}
-                <NavLink 
-                    style={{
-                        fontWeight: 'bold',
-                        color: '#C8C2B7',
-                        border: '1px dashed gray',
-                    }}
-                    to="/gardens">New Garden</NavLink>
+                
             </div>
         );
     }
