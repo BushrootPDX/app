@@ -9,7 +9,7 @@ export function addPlantInstance(id) {
     return dispatch => {
         dispatch({ type: actions.ADDING_PLANT });
 
-        dispatch({ 
+        dispatch({
             type: actions.ADDED_PLANT,
             payload: id
         });
@@ -62,7 +62,7 @@ export function getGardenById(id) {
     };
 }
 
-export function plotClicked( garden, plantId, xPosition, yPosition) {
+export function plotClicked( garden, plantId, x, y) {
     return (dispatch, getState) => { 
         const { activeAction } = getState();
         if(activeAction === 'ADD') {
@@ -73,8 +73,8 @@ export function plotClicked( garden, plantId, xPosition, yPosition) {
             const newGardenPlot = _.cloneDeep(garden.plot) || [];
             newGardenPlot.push({
                 plantId,
-                xPosition,
-                yPosition
+                x,
+                y
             });
             gardensApi.updatePlot(garden._id, newGardenPlot)
                 .then( newGarden => {
@@ -96,7 +96,7 @@ export function plotClicked( garden, plantId, xPosition, yPosition) {
 
             const newGarden = Object.create(garden);
             newGarden.plot[plantId] = null;
-            
+
             gardensApi.update(newGarden)
                 .then(({savedGarden, slimUser}) => {
                     dispatch({

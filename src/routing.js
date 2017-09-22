@@ -7,7 +7,8 @@ import App from './App';
 import PrivateRoute from './privateRoute';
 import { checkForToken } from './auth/actions';
 import { connect } from 'react-redux';
-
+import HTML5Backend from 'react-dnd-html5-backend';
+import { DragDropContext } from 'react-dnd';
 
 const Home = () => (
     <div>
@@ -44,9 +45,11 @@ class TopBar extends Component {
     }
 }
 
-export default connect(
+export const TopBarContainer = connect(
     state => ({ user: state.auth.user }),
     dispatch => ({
         checkForToken() { return dispatch(checkForToken()); }
     })
 )(TopBar);
+
+export default DragDropContext(HTML5Backend)(TopBarContainer);
