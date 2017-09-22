@@ -20,7 +20,7 @@ export default class Dashboard extends Component {
                         }}
                         key={index} 
                         to={`gardens/${garden._id}`}>
-                        {garden.name}<br style={{padding: '10px'}}/>
+                        {garden.name}<br style={{padding: '10px',}}/>
                     </NavLink>;
                 })}
                 <NavLink 
