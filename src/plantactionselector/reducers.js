@@ -1,7 +1,7 @@
 import * as actions from './constants';
 
 export const activeAction = 
-    (state = '', { type, payload }) => {
+    (state = 'ADD', { type, payload }) => {
         switch(type) {
         case actions.ACTION_CHANGE:
             return payload;

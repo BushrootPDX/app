@@ -2,22 +2,22 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 
 export default class GardenActionSelector extends Component {
-    render (){
+    render() {
         const { garden, history } = this.props;
         const { saveGarden, deleteGarden } = this.props;
 
         const GardenActionDiv = styled.div`
-            border: 2px solid blue;
             display: flex;
             flex-direction: row;
-            justify-content: flex-end;
+            justify-content: center;
+            align-items: center;
             }
         `;
-    
-        return(
+
+        return (
             <GardenActionDiv>
                 <button type="button" onClick={() => saveGarden(garden)} >Save Garden</button>
-                <button type="button" onClick={() =>{
+                <button type="button" onClick={() => {
                     deleteGarden(garden);
                     history.push('/dashboard');
                 }} >Delete Garden</button>
