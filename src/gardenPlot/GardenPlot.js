@@ -33,20 +33,27 @@ const plantTarget = {
     }
 };
 
+function collect(connect, monitor) {
+    return { 
+        connectDropTarget: connect.dropTarget(),
+        itemType: monitor.getItemType() 
+    };
+}
+
 class GardenPlot extends Component {
 
-    moveBox(id, left, top) {
-        this.setState(update(this.state, {
-            boxes: {
-                [id]: {
-                    $merge: {
-                        left: left,
-                        top: top
-                    }
-                }
-            }
-        }));
-    }
+    // moveBox(id, left, top) {
+    //     this.setState(update(this.state, {
+    //         boxes: {
+    //             [id]: {
+    //                 $merge: {
+    //                     left: left,
+    //                     top: top
+    //                 }
+    //             }
+    //         }
+    //     }));
+    // }
 
     render() {
         const { garden, plotClicked, selectedPlant, connectDropTarget } = this.props;
@@ -103,6 +110,4 @@ export default compose(DropTarget('PLANT', plantTarget, collect), connect(
     mapStateToProps,
     mapDispatchToProps))(GardenPlot);
 
-function collect(connect, monitor) {
-    return { connectDropTarget: connect.dropTarget() };
-}
+// export default DropTarget('PLANT', plantTarget, collect)(GardenPlot);
