@@ -26,10 +26,10 @@ const plantTarget = {
     drop(props, monitor, component) {
         const item = monitor.getItem();
         const delta = monitor.getDifferenceFromInitialOffset();
-        const left = Math.round(item.left + delta.x);
-        const top = Math.round(item.top + delta.y);
+        const x = Math.round(item.x + delta.x);
+        const y = Math.round(item.y + delta.y);
 
-        component.movePlant(item.id, left, top);
+        component.movePlant(item.id, x, y);
     }
 };
 

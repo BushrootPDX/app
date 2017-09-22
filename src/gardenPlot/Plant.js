@@ -3,14 +3,15 @@ import { DragSource } from 'react-dnd';
 import { PLANT } from '../garden/constants';
 
 
-const style = spread => ({
-    width: `${spread}`,
-    height: `${spread}`,
+const style = (spread, x, y) => ({
+    width: `${spread}px`,
+    height: `${spread}px`,
     position: 'absolute',
     border: '1px dashed gray',
     backgroundColor: 'steelBlue',
     padding:'0.5rem 1rem',
-    curser: 'move'
+    curser: 'move',
+    transform: `translate(${x}px, ${y}px)`
 });
 
 const plantSource = {
@@ -38,7 +39,8 @@ export class Plant extends Component {
     
     render() {
         const { hideSourceOnDrag, connectDragSource, isDragging } = this.props;
-        const { img, type, x, y, spread, _id, name } = this.props;
+        const { x, y, _id, plantId } = this.props.props;
+        const { name, spread, img } = plantId;
         if(isDragging && hideSourceOnDrag) return null;
         
         return connectDragSource(
@@ -46,8 +48,9 @@ export class Plant extends Component {
                 alt={name}
                 id={_id}
                 src={img}
-                style={{...style(spread), x, y}}
+                style={{...style(spread, x, y)}}
             />
+
         );
     }
 }
