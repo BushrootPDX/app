@@ -28,6 +28,7 @@ export default class Garden extends Component {
             max-width: 25%;
             vertical-align: top;
             height: 80%;
+            overflow-x: hidden;
             overflow: scroll;
             * {
                 display: inline-block;

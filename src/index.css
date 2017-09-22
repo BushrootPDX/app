@@ -29,3 +29,7 @@ button {
   margin: auto;
   width: 30%;
 }
+
+.selected {
+  background-color: #C8C2B7;
+}
