@@ -8,6 +8,10 @@ export default class GardenActionSelector extends Component {
 
         const GardenActionDiv = styled.div`
             border: 2px solid blue;
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-end;
+            }
         `;
     
         return(

@@ -19,16 +19,20 @@ export default class Garden extends Component {
             display: inline-block;
             margin: auto;
             // width: 65vw;
+            max-width: 100%;
         `;
 
         const SearchPanel = styled.div`
             display: inline-block;
-            width: 30vw;
+            // width: 30vw;
+            max-width: 25%;
+            vertical-align: top;
             height: 80%;
             overflow: scroll;
             * {
                 display: inline-block;
-            }
+                max-width: 90%;
+            };
         `;
         
         return (

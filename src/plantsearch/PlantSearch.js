@@ -16,8 +16,11 @@ export class PlantSearch extends Component {
         const SearchDiv = styled.div`
             border-style: solid;
             border-width: 2px;
+            * {
+                max-width: 80%;
+            }
             img {
-                width: 50%;
+                width: 60%;
                 display: block;
                 margin: auto;
             };
@@ -40,7 +43,7 @@ export class PlantSearch extends Component {
             };
             ul {
                 display: block;
-                height: 20vw;
+                height: 10vw;
                 border: 1px solid black;
                 margin: auto;
                 width: 25vw;
