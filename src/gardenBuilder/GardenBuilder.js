@@ -10,6 +10,7 @@ margin: auto;
 width: 30%;
 h3 {
     fontSize: 32px;
+    color: #B8C733;
 }
 label {
     display: block;
