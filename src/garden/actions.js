@@ -76,17 +76,14 @@ export function plotClicked( garden, plantId, xPosition, yPosition) {
                 xPosition,
                 yPosition
             });
-            console.log('newGarden before going to API is ', newGardenPlot);
             gardensApi.updatePlot(garden._id, newGardenPlot)
                 .then( newGarden => {
-                    console.log('savedGarden coming back from API is ', newGarden);
                     dispatch({
                         type: actions.ADDED_PLANT,
                         payload: newGarden
                     });
                 })
                 .catch(error => {
-                    console.log('error from savedPlant is ', error);
                     dispatch({
                         type: actions.ADD_PLANT_ERROR,
                         payload: error

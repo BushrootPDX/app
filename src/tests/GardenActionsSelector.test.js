@@ -1,4 +1,4 @@
-import * as actions from '../gardenactionselector/constants';
+import * as actions from '../garden/constants';
 import { makeSaveGarden, makeDeleteGarden } from '../gardenactionselector/actions';
 
 describe('GardenActionSelector', () => {
