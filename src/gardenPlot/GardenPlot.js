@@ -1,5 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
+import { DragSourceContainer, DropTargetContainer } from '../dragaround/Container';
+
 
 export default function GardenPlot( props ) {
 
@@ -39,6 +41,8 @@ export default function GardenPlot( props ) {
                         style={{transform}}
                         alt={type} />;
                 })}
+                <DropTargetContainer />
+                <DragSourceContainer />
             </div>
         </PlotDiv>
     );
