@@ -8,10 +8,10 @@ export default class Dashboard extends Component {
         const { gardens } = this.props.user;
         return (
             <div>
-                <h3>Hello, Gard'ner!</h3>
-                <h5> Gardens: </h5>
+                <h3>Welcome</h3>
+                <h5>Your Gardens:</h5>
                 { gardens && gardens.map( (garden, index) => {
-                    return <Link key={index} to={`gardens/${garden._id}`}>{garden.name}</Link>;
+                    return <Link key={index} to={`gardens/${garden._id}`}>{garden.name}<br/></Link>;
                 })}
                 <Link to="/gardens">New Garden</Link>
             </div>
