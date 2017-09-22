@@ -41,7 +41,7 @@ class GardenPlot extends Component {
         display: inline-block;
         border-style: solid;
         border-width: 2px;
-        border-color: green;
+        border-color: #525038;
     `;
 
 
