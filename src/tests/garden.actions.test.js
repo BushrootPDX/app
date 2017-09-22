@@ -13,10 +13,10 @@ describe('garden reducers', () => {
             plot: {}
         };
         const plantId = '456ABC';
-        const xPosition = 2;
-        const yPosition = 4;
+        const x = 2;
+        const y = 4;
 
-        const updatedGardenPlot = immutableGarden(garden, plantId, xPosition, yPosition);
+        const updatedGardenPlot = immutableGarden(garden, plantId, x, y);
 
         expect(updatedGardenPlot).toEqual(
             
@@ -28,8 +28,8 @@ describe('garden reducers', () => {
                 plot: {
                     instanceId: '1111111',
                     plantId: '456ABC',
-                    xPosition: 2,
-                    yPosition: 4
+                    x: 2,
+                    y: 4
                 }
             }
             

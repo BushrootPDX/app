@@ -1,9 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
-import { DragSourceContainer, DropTargetContainer } from '../dragaround/Container';
+import { DropTarget } from 'react-dnd';
+import HTML5Backend from 'react-dnd-html5-backend';
+import DragSource from './Plant';
 
 
-export default function GardenPlot( props ) {
+export function GardenPlot( props ) {
 
     const { garden, plotClicked, selectedPlant } = props;
     const { _id, width, length, plot } = garden;
@@ -17,32 +19,37 @@ export default function GardenPlot( props ) {
         border-color: green;
     `;
 
+    const styles = {
+        width: `${width}vw`,
+        height: `${length}vw`,
+        position: 'relative'
+    };
+
+    const plantTarget = {
+        drop(props, monitor, component) {
+            const item = monitor.getItem();
+            const delta = monitor.getDifferenceFromInitialOffset();
+            const left = Math.round(item.left + delta.x);
+            const top = Math.round(item.top + delta.y);
+
+            component.movePlant(item.id, left, top);
+        }
+    };
+
     return (
         <PlotDiv>
             <div
                 id={_id}
-                style={renderPlot(width, length)}
+                style={styles}
                 onClick={event => {                    
-                    const x = event.screenX;
-                    const y = event.screenY;
+                    const x = event.nativeEvent.offsetX;
+                    const y = event.nativeEvent.offsetY;
                     if (event.target.id === _id) return plotClicked( garden, selectedPlant._id, x, y);
                     plotClicked( _id, event.target.id, x, y);
                 }}>
-                {plot && Object.keys(plot).map(key => {
-                    const {instanceId, img, xPosition, yPosition, type} = plot[key];
-
-                    const xVal = xPosition;
-                    const yVal = yPosition;
-                    const transform = `translate( ${ xVal }px, ${ yVal }px)`;
-
-                    return <img
-                        id={instanceId}
-                        src={img}
-                        style={{transform}}
-                        alt={type} />;
-                })}
-                <DropTargetContainer />
-                <DragSourceContainer />
+                {plot && plot.map( (plant, index) => {
+                    return <DropTarget key={index} props={plant}/>;
+                } )}
             </div>
         </PlotDiv>
     );
