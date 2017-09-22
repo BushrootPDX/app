@@ -11,49 +11,27 @@ import { connect } from 'react-redux';
 import { plotClicked, movePlant } from '../garden/actions';
 import { bindActionCreators } from 'redux'; 
 
-// const boxTarget = {
-//     drop(props, monitor, component) {
-//         const item = monitor.getItem();
-//         const delta = monitor.getDifferenceFromInitialOffset();
-//         const left = Math.round(item.left + delta.x);
-//         const top = Math.round(item.top + delta.y);
-
-//         component.moveBox(item.id, left, top);
-//     }
-// };
-
 const plantTarget = {
-    drop(props, monitor, component) {
+    drop(props, monitor) {
+        console.log('drop method');
         const item = monitor.getItem();
+        const id = item.id;
         const delta = monitor.getDifferenceFromInitialOffset();
         const x = Math.round(item.x + delta.x);
         const y = Math.round(item.y + delta.y);
 
-        component.movePlant(item.id, x, y);
+        movePlant({id, x, y});
     }
 };
 
 function collect(connect, monitor) {
     return { 
         connectDropTarget: connect.dropTarget(),
-        itemType: monitor.getItemType() 
+        itemType: monitor.getItemType()
     };
 }
 
 class GardenPlot extends Component {
-
-    // moveBox(id, left, top) {
-    //     this.setState(update(this.state, {
-    //         boxes: {
-    //             [id]: {
-    //                 $merge: {
-    //                     left: left,
-    //                     top: top
-    //                 }
-    //             }
-    //         }
-    //     }));
-    // }
 
     render() {
         const { garden, plotClicked, selectedPlant, connectDropTarget, movePlant } = this.props;
