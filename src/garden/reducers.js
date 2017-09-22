@@ -8,6 +8,7 @@ export function garden(state = {}, { type, payload }) {
     case actions.ADDED_GARDEN:
     case actions.ADDED_PLANT:
     case actions.REMOVED_PLANT:
+    case actions.MOVED_PLANT:
         return payload;
     case actions.DELETED_GARDEN:
         return {};
@@ -23,6 +24,7 @@ export function gardenError(state = null, { type, payload }) {
     case actions.SAVE_GARDEN_ERROR:
     case actions.DELETE_GARDEN_ERROR:
     case actions.FETCHED_GARDEN_ERROR:
+    case actions.MOVE_PLANT_ERROR:
         return payload;
     case actions.FETCHING_GARDEN:
     case actions.FETCHED_GARDEN:
@@ -35,6 +37,7 @@ export function gardenLoading(state = false, { type, paylaod }) {
     switch(type) {
     case actions.ADDING_GARDEN:
     case actions.FETCHING_GARDEN:
+    case actions.MOVING_PLANT:
         return true;
     case actions.FETCHED_GARDEN:
     case actions.FETCHED_GARDEN_ERROR:

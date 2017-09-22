@@ -117,3 +117,41 @@ export function plotClicked( garden, plantId, x, y) {
         }
     };
 }
+
+export function movePlant({id, x, y}) {
+    console.log('trying to move this thing', id, x, y);
+
+    return (dispatch, getState) => {
+        const { garden: currentGarden } = getState();
+        const moverIndex = currentGarden.plot.findIndex((plant) => plant._id === id);
+        const movingPlant = _.cloneDeep(newGarden.plot[moverIndex]);
+        const newGardenPlot = _.cloneDeep(currentGarden.plot);
+        
+        
+        movingPlant.x = x;
+        movingPlant.y = y;
+        
+        newGardenPlot.splice(moverIndex, 1);
+        newGardenPlot.push(movingPlant);
+
+        dispatch({
+            type: actions.MOVING_PLANT
+        });
+
+        gardensApi.updatePlot(currentGarden._id, newGardenPlot)
+            .then( newGarden => {
+                dispatch({
+                    type: actions.MOVED_PLANT,
+                    payload: newGarden
+                });
+            })
+            .catch( error => {
+                dispatch({
+                    type: actions.MOVE_PLANT_ERROR,
+                    payload: error
+                });
+            });
+
+    };
+
+}
