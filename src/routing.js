@@ -12,7 +12,11 @@ import { DragDropContext } from 'react-dnd';
 
 const Home = () => (
     <div>
-        <h2>Home</h2>
+        <h2
+            style={{
+                paddingRight:'10px',
+                color: '#B8C733'
+            }}>Welcome Bush Root!</h2>
     </div>
 );
 
@@ -29,18 +33,23 @@ class TopBar extends Component {
                     <ul>
                         <NavLink
                             style={{
-                                paddingRight:'10px'
+                                paddingRight:'10px',
+                                color: '#C8C2B7'
                             }}
                             activeStyle={{
                                 fontWeight: 'bold',
-                                color: 'pink',
+                                color: '#9AAC39',
                                 border: '1px solid gray',
                             }}
                             exact to="/">Home</NavLink>
                         <NavLink 
+                            style={{
+                                paddingRight:'10px',
+                                color: '#C8C2B7'
+                            }}
                             activeStyle={{
                                 fontWeight: 'bold',
-                                color: 'pink',
+                                color: '#9AAC39',
                                 border: '1px solid gray',
                             }}
                             to="/dashboard">Dashboard</NavLink>
