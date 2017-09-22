@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import update from 'react/lib/update';
 import PropTypes from 'prop-types';
 import { DropTarget } from 'react-dnd';
 import HTML5Backend from 'react-dnd-html5-backend';
@@ -41,13 +40,22 @@ class GardenPlot extends Component {
         display: inline-block;
         border-style: solid;
         border-width: 2px;
+<<<<<<< HEAD
         border-color: #525038;
+=======
+        border-color: green;
+        borderRadius: 10px;
+        overflow: hidden
+        
+>>>>>>> e61352f0c6a151ab2547e4af0c78d339b968f2e9
     `;
-
+        function renderSize(num) {
+            return parseInt(num * 5, 10);
+        }
 
         const styles = {
-            width: `${width}vw`,
-            height: `${length}vw`,
+            width: `${renderSize(width)}px`,
+            height: `${renderSize(length)}px`,
             position: 'relative'
         };
 
@@ -58,10 +66,14 @@ class GardenPlot extends Component {
                         id={_id}
                         style={styles}
                         onClick={event => {
+                            console.log(event.target.id);
                             const x = event.nativeEvent.offsetX;
                             const y = event.nativeEvent.offsetY;
-                            if (event.target.id === garden._id) return plotClicked(garden, selectedPlant._id, x, y);
-                            if( event.target.id === selectedPlant._id )plotClicked(garden, event.target.id, x, y);
+                            if (event.target.id !== garden._id) {
+                                return plotClicked(garden, event.target.id, x, y);
+                            } else {
+                                return plotClicked(garden, selectedPlant._id, x, y);
+                            }
                         }}>
                         {plot && plot.map((plant, index) => {
                             return <DragSource key={index} props={plant} />;
