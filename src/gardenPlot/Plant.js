@@ -45,6 +45,7 @@ export class Plant extends Component {
         
         return connectDragSource(
             <img
+                name={_id}
                 alt={name}
                 id={_id}
                 src={img}

@@ -8,7 +8,7 @@ import styled from 'styled-components';
 import DragSource from './Plant';
 import { compose } from 'redux';
 import { connect } from 'react-redux';
-import { plotClicked } from '../garden/actions';
+import { plotClicked, movePlant } from '../garden/actions';
 import { bindActionCreators } from 'redux'; 
 
 // const boxTarget = {
@@ -56,7 +56,7 @@ class GardenPlot extends Component {
     // }
 
     render() {
-        const { garden, plotClicked, selectedPlant, connectDropTarget } = this.props;
+        const { garden, plotClicked, selectedPlant, connectDropTarget, movePlant } = this.props;
         const { _id, width, length, plot } = garden;
 
         const PlotDiv = styled.div`
@@ -103,7 +103,7 @@ function mapStateToProps(state) {
 }
 
 function mapDispatchToProps(dispatch) {
-    return bindActionCreators( { plotClicked }, dispatch);
+    return bindActionCreators( { plotClicked, movePlant }, dispatch);
 }
 
 export default compose(DropTarget('PLANT', plantTarget, collect), connect(
