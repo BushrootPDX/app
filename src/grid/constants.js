@@ -1,1 +1,2 @@
 export const ADD_INSTANCE = 'ADD_INSTANCE';
+export const CONVERTED_PLOT = 'CONVERTED_PLOT';

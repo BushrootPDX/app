@@ -34,8 +34,8 @@ export default function GardenPlot( props ) {
                 id={_id}
                 style={renderPlot(width, length)}
                 onClick={event => {                    
-                    const x = event.screenX;
-                    const y = event.screenY;
+                    const x = Math.abs(event.nativeEvent.offsetX);
+                    const y = Math.abs(event.nativeEvent.offsetY);
                     if (event.target.id === _id) return plotClicked( garden, selectedPlant._id, x, y);
                     plotClicked( garden, _id, event.target.id, x, y);
                 }}>
@@ -45,14 +45,7 @@ export default function GardenPlot( props ) {
                     const xVal = x;
                     const yVal = y;
                     const transform = `translate( ${ xVal }px, ${ yVal }px)`;
-                    const newPlant = <div>
-                        <img
-                            id={instanceId}
-                            src={img}
-                            style={{transform}}
-                            alt={type} />
-                    </div>;
-                    return newPlant;
+                    
                 })}
                 <BasicGrid garden={ garden } plot={ plot }/>
             </div>

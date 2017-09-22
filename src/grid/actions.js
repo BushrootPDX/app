@@ -9,7 +9,25 @@ export function onAddInstance(instance) {
     };
 
 }
-
+export function converPolt(garden)  {
+    const convertedGarden = garden.plot.map((plant) => {
+        const item = {
+            key:`${plant._id}`,
+            i: `${plant._id}`,
+            x: plant.x,
+            y: plant.y,
+            w: plant.spread,
+            h: plant.spread
+        }; 
+        return convertedGarden;
+    });
+    return dispatch => {
+        dispatch({
+            type: actions.CONVERTED_PLOT,
+            payload: convertedGarden
+        });
+    };
+}
 //   onAddItem() {
 //     this.setState({
 //       items: this.state.items.concat({

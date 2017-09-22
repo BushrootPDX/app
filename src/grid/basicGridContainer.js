@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { withRouter } from 'react-router';
-import { onAddInstance, onRemoveInstance } from './actions';
+import { onAddInstance, onRemoveInstance, converPolt } from './actions';
 import { plotClicked } from '../garden/actions';
 
 import BasicGrid from './basicGrid';
@@ -14,7 +14,7 @@ function mapStateToProps(state) {
 }
 
 function mapDispatchToProps(dispatch) {
-    return bindActionCreators({ onAddInstance, onRemoveInstance, plotClicked }, dispatch);
+    return bindActionCreators({ onAddInstance, onRemoveInstance, converPolt }, dispatch);
 }
 
 function mergeProps() {

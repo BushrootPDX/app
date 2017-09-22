@@ -62,6 +62,7 @@ export function getGardenById(id) {
     };
 }
 
+
 export function plotClicked( garden, plantId, x = 0, y) {
     return (dispatch, getState) => { 
         const { activeAction } = getState();

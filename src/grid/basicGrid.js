@@ -4,18 +4,42 @@ import '../../node_modules/react-grid-layout/css/styles.css';
 import ReactGridLayout from 'react-grid-layout';
 
 
+let layout;
 export default class BasicGrid extends Component {
-    
-    render() {
-        const { garden, plot } = this.props;
-        const { plotClicked, onAddInstance, onRemoveInstance } = this.props;
-        const { selectedPlant } = this.props;
-        console.log(plot);
+    componentDidMount() {
+        const { garden } = this.props;
+        if(garden.plot) {
+            layout = garden.plot.map(plant => {
+                return ({
+                    key:`${plant._id}`,
+                    i: `${plant._id}`,
+                    x: parseInt(plant.x),
+                    y: parseInt(plant.y),
+                    w: parseInt(plant.spread),
+                    h: parseInt(plant.spread)
+                });
+            });
+        }
 
-        // plot.map((plant) => {
-        //     const layout = {}
-        //     return 
-        // })
+    }
+    render() {
+        const { garden } = this.props;
+        console.log(garden);
+        const { onAddInstance, onRemoveInstance, converPolt } = this.props;
+        const { selectedPlant } = this.props;
+
+
+        // const converPolt = garden.plot.map((plant) => {
+        //     const item = {
+        //         key:`${plant._id}`,
+        //         i: `${plant._id}`,
+        //         x: plant.x,
+        //         y: plant.y,
+        //         w: plant.spread,
+        //         h: plant.spread
+        //     }; 
+        //     return item;
+        // });
         
         // Object.keys(plot).map() = layout
         // layout is an array of objects, see the demo for more complete usage
@@ -23,11 +47,11 @@ export default class BasicGrid extends Component {
         // NOTE: need a max lenth of webpage or the grid will have a infinite length
         // onLayoutChange={'resubmit the garden'}
         // onDragStop={'set new layout on plot'}
-        var layout = [
-            {i: 'tomato', x: 0, y: 0, w: 1, h: 1},
-            {i: 'carrot', x: 2, y: 0, w: 1, h: 1},
-            {i: 'corn', x: 4, y: 0, w: 1, h: 1}
-        ];
+        // var layout = [
+        //     {i: 'tomato', x: 0, y: 0, w: 1, h: 1},
+        //     {i: 'carrot', x: 2, y: 0, w: 1, h: 1},
+        //     {i: 'corn', x: 4, y: 0, w: 1, h: 1}
+        // ];
         return (
             
             
@@ -35,7 +59,7 @@ export default class BasicGrid extends Component {
                 className="layout" 
                 autoSize={false}
                 isResizable={false}
-                layout={plot}
+                layout={layout}
                 useCSSTransforms={true}
                 verticalCompact={false}
                 cols={6}
@@ -51,21 +75,22 @@ export default class BasicGrid extends Component {
             >    
                 {
                     garden.plot &&  garden.plot.map(plant => {
-                        const { name, spread, id } = plant;
+                        const { name, spread, _id } = plant;
                         const styled = (spread) => ({
                             width: spread,
                             height: spread,
                             borderStyle: 'solid',
                             borderColor: '#000',
-                            borderWidth: 'solid'
+                            borderWidth: 'solid',
+                            backgroundColor: 'blue'
 
 
                         });
                         return (
-                            <div key={id} id={id} style={styled(spread)}>{name}</div>
+                            <div key={_id} id={_id} style={styled(spread)}>{name}</div>
                         );
                     })
-                }         
+                }
             </ReactGridLayout>    
             
             
@@ -104,10 +129,9 @@ export default class BasicGrid extends Component {
 
 //   getInitialState() {
 //     return {
-//       items: [0, 1, 2, 3, 4].map(function(i, key, list) {
-//         return {i: i.toString(), x: i * 2, y: 0, w: 2, h: 2, add: i === (list.length - 1).toString()};
-//       }),
-//       newCounter: 0
+//       items: plot.map(function(i, key, list) {
+//         return {_id: i.toString(), x: i * 2, y: 0, w: 2, h: 2,};
+//       })
 //     };
 //   },
 
