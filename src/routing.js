@@ -24,21 +24,21 @@ class TopBar extends Component {
     render() {
         return (
             <Router >
-            <div className="TopBar">
-                <ul>
-                    <Link to="/">Home</Link>
-                    <Link to="/dashboard">Dashboard</Link>
-                </ul>
-                <hr/>
-                <Switch>
-                    <Route path="/auth" render={() => <Auth/>}/>
-                    <PrivateRoute path="/dashboard" render={() => <App/>}/>
-                    <Route exact path="/" component={Home}/>
-                    <PrivateRoute path="/gardens/:id" component={GardenContainer}/>
-                    <PrivateRoute path="/gardens" component={GardenBuilderContainer}/>
-                    <Redirect to="/"/>
-                </Switch>
-            </div>
+                <div className="TopBar">
+                    <ul>
+                        <Link to="/">Home</Link>
+                        <Link to="/dashboard">Dashboard</Link>
+                    </ul>
+                    <hr/>
+                    <Switch>
+                        <Route path="/auth" render={() => <Auth/>}/>
+                        <PrivateRoute path="/dashboard" render={() => <App/>}/>
+                        <Route exact path="/" component={Home}/>
+                        <PrivateRoute path="/gardens/:id" component={GardenContainer}/>
+                        <PrivateRoute path="/gardens" component={GardenBuilderContainer}/>
+                        <Redirect to="/"/>
+                    </Switch>
+                </div>
             </Router>
         );
     }
