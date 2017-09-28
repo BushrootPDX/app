@@ -32,6 +32,7 @@ export class PlantSearch extends Component {
             };
         `;
 
+        // nice work reusing PlantList
         return (
             <SearchDiv>
                 <SearchBarContainer />

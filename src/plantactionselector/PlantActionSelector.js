@@ -17,21 +17,20 @@ export default class PlantActionSelector extends Component {
 
         return (
             <PlantActionDiv>
-                <button
-                    type="submit"
-                    onClick={event => {
-                        event.preventDefault();
-                        addAction();
-                    }}
-                >Add</button>
-                <button
-                    type="submit"
-                    onClick={event => {
-                        event.preventDefault();
-                        removeAction();
-                    }}
-                >Remove</button>
+                <ActionButton title="Add" action={addAction}/>
+                <ActionButton title="Remove" action={removeAction}/>
             </PlantActionDiv>
         );
     }
+}
+
+function ActionButton({ title, action }) {
+    return (
+        <button type="submit" onClick={event => {
+            event.preventDefault();
+            action();
+        }}>
+            {title}
+        </button>
+    );
 }

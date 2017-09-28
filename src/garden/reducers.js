@@ -1,7 +1,7 @@
 
 import * as actions from './constants';
 
-export function garden(state = {}, { type, payload }) {
+export function garden(state = null, { type, payload }) {
     switch(type) {
     case actions.SAVED_GARDEN:
     case actions.FETCHED_GARDEN:
