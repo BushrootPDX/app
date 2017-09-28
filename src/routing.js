@@ -15,6 +15,8 @@ const Home = () => (
     </div>
 );
 
+// Not sure why this is called TopBar. It's the meat of the app, right?
+// And it's in a file called routing.js
 class TopBar extends Component {
 
     componentDidMount() {
@@ -35,7 +37,7 @@ class TopBar extends Component {
                         <PrivateRoute path="/dashboard" render={() => <App/>}/>
                         <Route exact path="/" component={Home}/>
                         <PrivateRoute path="/gardens/:id" component={GardenContainer}/>
-                        <PrivateRoute path="/gardens" component={GardenBuilderContainer}/>
+                        <PrivateRoute exact path="/gardens" component={GardenBuilderContainer}/>
                         <Redirect to="/"/>
                     </Switch>
                 </div>

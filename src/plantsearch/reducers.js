@@ -57,6 +57,7 @@ export function plantsLoading(state = false, { type, payload }) {
 export function selectedPlant( state = {}, { type, payload }) {
     switch (type) {
     case actions.FETCHED_PLANT:
+        // Wha?
         setTimeout(() => {}, 2000);
         return payload;
     default:

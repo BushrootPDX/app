@@ -1,7 +1,6 @@
 
 import * as actions from './constants';
 import gardensApi from '../services/gardensApi';
-import shortid from 'shortid';
 import _ from 'lodash';
 
 export function addPlantInstance(id) {
@@ -21,7 +20,8 @@ export function newGarden(garden, goToGarden) {
         dispatch({
             type: actions.ADDING_GARDEN
         });
-        gardensApi.add(garden)
+        // now the caller can know when actions are done(or failed)
+        return gardensApi.add(garden)
             .then(({savedGarden, slimUser}) => {
                 dispatch({
                     type: actions.ADDED_GARDEN,
@@ -31,7 +31,8 @@ export function newGarden(garden, goToGarden) {
                     type: 'FETCHED_USER',
                     payload: slimUser
                 });
-                goToGarden(savedGarden._id);
+                // return the id via the promise
+                return savedGarden._id;
             }, error => {
                 dispatch({
                     type: actions.ADD_GARDEN_ERROR,

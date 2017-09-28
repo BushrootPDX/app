@@ -4,6 +4,7 @@ const URL = '/plants';
 
 export default {
     getByQuery(query) {
+        // "n"?
         return request.get(`${URL}/?n=${query}`);
     }
     ,

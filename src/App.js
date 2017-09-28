@@ -4,6 +4,7 @@ import './App.css';
 import { checkForToken } from './auth/actions';
 import { connect } from 'react-redux';
 
+// doesn't look like this file is used...
 class App extends Component {
 
     componentDidMount() {

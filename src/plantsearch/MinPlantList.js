@@ -9,7 +9,7 @@ export default class MinPlantList extends Component {
         return (
             <ul>
                 {plants && plants.map((plant, index) => 
-                    (<li key={index} 
+                    (<li key={plant._id} 
                         id={plant._id} 
                         onClick={() => selectPlant(plant._id)}>
                         {plant.name}
