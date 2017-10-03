@@ -24,6 +24,7 @@ Starting any of the existing tests is as easy as writeing npm test in the apps c
 
 ## Built With
 [React](https://reactjs.org/)- the frot-end web framwork from Facebook
+
 [Redux](http://redux.js.org/) - the state management system you can intigrate with React
 [ReactDnD](https://github.com/react-dnd/react-dnd) - a React module that gives us the means of draging and droping objects in the view
 
