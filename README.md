@@ -1,5 +1,5 @@
 # Bushroot
-The garding website prototype ment to help hobbyists organize and document their gardens. Make an account define your own garden plot size and map out what you’ve planted.
+This gardening website prototype is meant to help hobbyists organize and document their gardens. Create an account, define your own garden plot and map out what you’ve planted.
 #### Live Website:
 http://bushroot.herokuapp.com/
 ### Prerequisites
@@ -7,7 +7,7 @@ Be sure you have MongoDB installed with its own instance running on your machine
 You can install MongoDB from [here:](https://docs.mongodb.com/getting-started/shell/installation/)
 ### Installing
 If you want to toy with this yourself, make a clone or download with the clone or download button.
-be sure to do the same for the server side aswell.
+be sure to do the same for the server side as well.
 From here be sure to type
 ```
 npm install
@@ -20,7 +20,7 @@ Next connect the Bushroot server with your MongoDB instance by typing npm start 
 Finally you’ll be ready to start the app portion with another npm start in the app’s command line
 
 ## Running the tests
-Starting any of the existing tests is as easy as writeing npm test in the apps comand process
+Starting any of the existing tests is as easy as writing npm test in the apps command process
 
 ## Built With
 [React](https://reactjs.org/)- the frot-end web framwork from Facebook
