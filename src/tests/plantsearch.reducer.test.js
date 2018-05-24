@@ -9,15 +9,15 @@ describe('plantsearch reducers', () => {
             {name:'peas',_id:'789'},
             {name:'cabbage',_id:'1011'},
         ];
-        // const initalState = recentlyViewed([], 
+        // const initialState = recentlyViewed([], 
         //     {type: actions.VIEWED_PLANT, payload:{name:'tomato',_id:'123'}});
-        // expect(initalState).toEqual(recent);
+        // expect(initialState).toEqual(recent);
 
         const finalState = recentlyViewed(recent, 
-            {type:actions.VIEWED_PLANT, payload: {name:'letuss',_id:'987'}});
+            {type:actions.VIEWED_PLANT, payload: {name:'lettuce',_id:'987'}});
         expect(finalState).toEqual(
             [
-                {name:'letuss',_id:'987'},
+                {name:'lettuce',_id:'987'},
                 {name:'tomato',_id:'123'},
                 {name:'corn',_id:'456'},
                 {name:'peas',_id:'789'},

@@ -1,7 +1,6 @@
 
 import * as actions from './constants';
 import gardensApi from '../services/gardensApi';
-import shortid from 'shortid';
 import _ from 'lodash';
 
 export function addPlantInstance(id) {

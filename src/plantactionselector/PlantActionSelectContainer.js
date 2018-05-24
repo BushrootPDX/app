@@ -3,7 +3,7 @@ import { addAction, removeAction, actionReset } from './actions';
 import { bindActionCreators } from 'redux';
 import PlantActionSelector from './PlantActionSelector';
 
-const mapStatetoProps = state => ({
+const mapStateToProps = state => ({
     activeAction: state.activeAction
 });
 
@@ -12,7 +12,7 @@ function mapDispatchToProps (dispatch) {
 }
 
 const PlantActionSelectContainer = connect(
-    mapStatetoProps,
+    mapStateToProps,
     mapDispatchToProps,
 )(PlantActionSelector);
 

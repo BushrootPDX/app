@@ -17,7 +17,7 @@ export function recentlyViewed(state = [], { type, payload}) {
 
         if(index !== -1) newArray.splice(index,1);
         newArray.unshift(payload);
-        //TODO: change list lenght to hight number with test
+        //TODO: change list length to height number with test
         if(newArray.length >= 4 ) newArray.pop();
         return newArray;
     }
