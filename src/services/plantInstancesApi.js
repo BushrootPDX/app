@@ -5,62 +5,22 @@ const URL = '/plantInstances';
 
 export default {
     getAll() {
-        return request.get(URL)
-            .then(
-                r => r.body,
-                ({ response }) => {
-                    const { body, text } = response;
-                    const error = body ? body.message || body.error || body : text;
-                    throw error;
-                }
-            );
+        return request.get(URL);
     },
 
     get(id) {
-        return request.get(`${URL}/${id}`)
-            .then(
-                r => r.body,
-                ({ response }) => {
-                    const { body, text } = response;
-                    const error = body ? body.message || body.error || body : text;
-                    throw error;
-                }
-            );
+        return request.get(`${URL}/${id}`);
     },
 
     add(plantInstance) {
-        return request.post(URL, plantInstance)
-            .then(
-                r => r.body,
-                ({ response }) => {
-                    const { body, text } = response;
-                    const error = body ? body.message || body.error || body : text;
-                    throw error;
-                }
-            );
+        return request.post(URL, plantInstance);
     },
 
     update(plantInstance) {
-        return request.put(`${URL}/${plantInstance._id}`, plantInstance)
-            .then(
-                r => r.body,
-                ({ response }) => {
-                    const { body, text } = response;
-                    const error = body ? body.message || body.error || body : text;
-                    throw error;
-                }
-            );
+        return request.put(`${URL}/${plantInstance._id}`, plantInstance);
     },
 
     delete({gardenId, plantId}) {
-        return request.delete(`${URL}/${plantId}`)
-            .then(
-                r => r.body,
-                ({ response }) => {
-                    const { body, text } = response;
-                    const error = body ? body.message || body.error || body : text;
-                    throw error;
-                }
-            );
-    },
+        return request.delete(`${URL}/${plantId}`);
+    }
 };

@@ -1,7 +1,7 @@
 import * as actions from './constants';
 
 export const queryField = 
-    (state = 'Search...', { type, payload }) => {
+    (state = '', { type, payload }) => {
         switch(type) {
         case actions.QUERY_CHANGE:
             return payload;

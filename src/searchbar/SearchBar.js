@@ -17,6 +17,7 @@ export default class SearchBar extends Component {
             }}>
                 <input
                     type="text"
+                    placeholder="Search..."
                     value={queryField}
                     onChange={({ target }) => queryChange(target.value)}
                 ></input>
