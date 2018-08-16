@@ -12,15 +12,15 @@ export default class Garden extends Component {
         if(id) this.props.getGardenById(id);
     }
     render() {
-        const { loading, garden, error } = this.props;
-        // const {id} = this.props.match.params;
+        const { loading, garden, error, match } = this.props;
+        const {id} = match.params;
         if (loading) return <div>Loading...</div>;
         
         return (
             <div>
-                {!this.props.match.params.id && <div><GardenBuilderContainer/></div>}
+                {!id && <div><GardenBuilderContainer/></div>}
                 {error && error.map(err => <pre>{err}</pre>)}
-                {this.props.match.params.id && (
+                {id && (
                     <div>
                         <h2>{garden.name}</h2>
                         <PlantActionSelectContainer {...this.props} />

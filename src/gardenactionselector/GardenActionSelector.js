@@ -9,8 +9,7 @@ export default class GardenActionSelector extends Component {
             <div>
                 <button type="button" onClick={() => saveGarden(garden)} >Save Garden</button>
                 <button type="button" onClick={() =>{
-                    deleteGarden(garden);
-                    history.push('/dashboard');
+                    deleteGarden(garden).then(() => history.push('/dashboard'));
                 }} >Delete Garden</button>
             </div>
         );

@@ -20,7 +20,7 @@ export function newGarden(garden, goToGarden) {
         dispatch({
             type: actions.ADDING_GARDEN
         });
-        gardensApi.add(garden)
+        return gardensApi.add(garden)
             .then(({savedGarden, slimUser}) => {
                 dispatch({
                     type: actions.ADDED_GARDEN,
@@ -30,7 +30,7 @@ export function newGarden(garden, goToGarden) {
                     type: 'FETCHED_USER',
                     payload: slimUser
                 });
-                goToGarden(savedGarden._id);
+                return savedGarden._id;
             }, error => {
                 dispatch({
                     type: actions.ADD_GARDEN_ERROR,

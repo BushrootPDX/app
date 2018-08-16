@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function PlantDetail( props ) {
+export default function PlantDetail({ selectedPlant }) {
     const {
         _id,
         name, 
@@ -11,7 +11,7 @@ export default function PlantDetail( props ) {
         description,
         sun_requirements,
         sowing_method
-    } = props.selectedPlant;
+    } = selectedPlant;
 
     return (
         <div id={_id}>
