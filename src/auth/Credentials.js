@@ -11,12 +11,12 @@ const Form = styled.form`
     }
 `;
 
-export default ({ submit}) => (
+export default ({ submit }) => (
     <Form onSubmit={e => {
         e.preventDefault();
         const { elements } = e.target;
-        const data = Object.keys(elements).reduce((obj, key) => {
-            obj[key] = elements[key].value;
+        const data = Object.entries(elements).reduce((obj, [key, val]) => {
+            obj[val.name] = val.value;
             return obj;
         }, {});
         submit(data);
