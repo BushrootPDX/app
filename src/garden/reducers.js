@@ -31,7 +31,7 @@ export function gardenError(state = null, { type, payload }) {
     }
 }
 
-export function gardenLoading(state = false, { type, paylaod }) {
+export function gardenLoading(state = false, { type }) {
     switch(type) {
     case actions.ADDING_GARDEN:
     case actions.FETCHING_GARDEN:
@@ -43,6 +43,3 @@ export function gardenLoading(state = false, { type, paylaod }) {
     default: return state;
     }
 }
-
-
-

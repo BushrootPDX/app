@@ -5,10 +5,6 @@ const mapStateToProps = state => ({
     user: state.auth.user
 });
 
-const mapDispatchToProps = dispatch => {
-    return {};
-};
-
 const DashboardContainer = connect(
     mapStateToProps,
     null

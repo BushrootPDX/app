@@ -1,3 +1,3 @@
 export const ACTION_CHANGE = 'ACTION_CHANGE';
 export const ACTION_SUBMIT = 'ACTION_SUBMIT';
-export const ACTION_RESET ='ACTION_RESET';
+export const ACTION_RESET = 'ACTION_RESET';
