@@ -4,7 +4,7 @@ import { bindActionCreators } from 'redux';
 import PlantActionSelector from './PlantActionSelector';
 
 function mapDispatchToProps (dispatch) {
-    return bindActionCreators({ addAction, removeAction, actionReset}, dispatch);
+    return bindActionCreators({ addAction, removeAction, actionReset }, dispatch);
 }
 
 const PlantActionSelectContainer = connect(
