@@ -5,14 +5,13 @@ import { withRouter } from 'react-router';
 
 import GardenBuilder from './GardenBuilder';
 
-const mapDispatchToProps = (dispatch) => {
-    return bindActionCreators( { newGarden }, dispatch);
+const mapDispatchToProps = dispatch => {
+    return bindActionCreators({ newGarden }, dispatch);
 };
 
 const GardenBuilderContainer = connect(
-    mapDispatchToProps,
-    null
+    null,
+    mapDispatchToProps
 )(withRouter(GardenBuilder));
 
 export default GardenBuilderContainer;
-
